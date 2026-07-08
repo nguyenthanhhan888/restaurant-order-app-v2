@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý Nhà Cung Cấp</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+    <div id="sidebar-overlay" class="sidebar-overlay"></div>
+    <nav id="sidebar" class="sidebar">
+        <div class="app-nav">
+            <a href="./order.html" class="nav-link">Tạo Đơn Hàng</a>
+            <a href="./suppliers.html" class="nav-link">Nhà Cung Cấp</a>
+            <a href="./products.html" class="nav-link">Mặt Hàng</a>
+            <a href="./summary.html" class="nav-link">Lịch Sử</a>
+        </div>
+    </nav>
+
+    <header class="app-header">
+        <button id="hamburger-menu" class="hamburger-menu">☰</button>
+        <div class="header-title">TA-IZAKAYA</div>
+        <div style="width: 40px;"></div> <!-- Spacer -->
+    </header>
+
+    <main>
+        <div class="container">
+            <div class="content-wrapper">
+                <div class="content-card">
+                    <h1>Quản Lý Nhà Cung Cấp</h1>
+                    <div style="margin-top: 1.5rem;">
+                        <button id="add-supplier-btn" class="btn btn-primary">+ Thêm Nhà Cung Cấp</button>
+                    </div>
+
+                    <div class="table-wrapper">
+                        <table class="table table-suppliers">
+                            <thead>
+                                <tr>
+                                    <th class="col-stt">STT</th>
+                                    <th class="col-name">Tên Nhà Cung Cấp</th>
+                                    <th class="col-actions">Hành động</th>
+                                </tr>
+                            </thead>
+                            <tbody id="supplier-table-body">
+                                <!-- Supplier rows will be injected here by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal for Add/Edit Supplier -->
+    <div id="supplier-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title">Thêm Nhà Cung Cấp</h2>
+                <span class="close-button">&times;</span>
+            </div>
+            <form id="supplier-form">
+                <input type="hidden" id="supplier-id">
+                <div class="form-group">
+                    <label for="supplier-name">Tên Nhà Cung Cấp</label>
+                    <input type="text" id="supplier-name" class="form-control" required>
+                    <div id="name-error" class="form-error"></div>
+                </div>
+                <button type="submit" class="btn btn-primary">Lưu</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal for Group Management -->
+    <div id="group-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="group-modal-title">Quản lý Nhóm</h2>
+                <span class="close-button">&times;</span>
+            </div>
+            
+            <!-- Form for adding/editing a group -->
+            <form id="group-form" style="margin-bottom: 1.5rem;">
+                <input type="hidden" id="group-id">
+                <input type="hidden" id="group-supplier-id">
+                <div class="form-group">
+                    <label for="group-name">Tên Nhóm</label>
+                    <input type="text" id="group-name" class="form-control" placeholder="Nhập tên nhóm rồi nhấn Enter hoặc Lưu">
+                    <div id="group-name-error" class="form-error"></div>
+                </div>
+                <button type="submit" class="btn btn-primary">Lưu Nhóm</button>
+            </form>
+
+            <!-- Table for listing groups -->
+            <div class="table-wrapper">
+                <table class="table">
+                    <thead>
+                        <tr>
+                            <th style="width: 50px;">STT</th>
+                            <th>Tên Nhóm</th>
+                            <th style="width: 150px;">Hành động</th>
+                        </tr>
+                    </thead>
+                    <tbody id="group-table-body"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/main.js" type="module"></script>
+    <script src="../assets/js/pages/suppliers.js" type="module"></script>
+</body>
+</html>

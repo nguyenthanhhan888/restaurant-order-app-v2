@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý Mặt Hàng</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+    <div id="sidebar-overlay" class="sidebar-overlay"></div>
+    <nav id="sidebar" class="sidebar">
+        <div class="app-nav">
+            <a href="./order.html" class="nav-link">Tạo Đơn Hàng</a>
+            <a href="./suppliers.html" class="nav-link">Nhà Cung Cấp</a>
+            <a href="./products.html" class="nav-link">Mặt Hàng</a>
+            <a href="./summary.html" class="nav-link">Lịch Sử</a>
+        </div>
+    </nav>
+
+    <header class="app-header">
+        <button id="hamburger-menu" class="hamburger-menu">☰</button>
+        <div class="header-title">TA-IZAKAYA</div>
+        <div style="width: 40px;"></div> <!-- Spacer -->
+    </header>
+
+    <main>
+        <div class="container">
+            <h1>Quản Lý Mặt Hàng</h1>
+
+            <div class="form-group">
+                <label for="supplier-select">Chọn Nhà Cung Cấp</label>
+                <select id="supplier-select" class="form-control"></select>
+            </div>
+
+            <div id="product-management-section" class="hidden">
+                <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem; margin-top: 2rem;">
+                    <h2>Danh Sách Mặt Hàng</h2>
+                    <button id="add-product-btn" class="btn btn-primary">Thêm Mặt Hàng</button>
+                </div>
+
+                <div class="table-wrapper">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th style="width: 50px;">STT</th>
+                                <th>Tên Mặt Hàng</th>
+                                <th>Đơn Vị</th>
+                                <th>Nhóm</th>
+                                <th style="width: 150px;">Hành động</th>
+                            </tr>
+                        </thead>
+                        <tbody id="product-table-body"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- Modal for Add/Edit Product -->
+    <div id="product-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2 id="modal-title">Thêm Mặt Hàng</h2>
+                <span class="close-button">&times;</span>
+            </div>
+            <form id="product-form">
+                <input type="hidden" id="product-id">
+                <div class="form-group">
+                    <label for="product-name">Tên Mặt Hàng</label>
+                    <input type="text" id="product-name" class="form-control" required>
+                    <div id="product-name-error" class="form-error"></div>
+                </div>
+                <div class="form-group">
+                    <label for="product-unit">Đơn Vị</label>
+                    <input type="text" id="product-unit" class="form-control" required placeholder="ví dụ: kg, gói, thùng...">
+                </div>
+                <div id="group-form-group" class="form-group hidden">
+                    <label for="product-group">Nhóm</label>
+                    <select id="product-group" class="form-control"></select>
+                </div>
+                <button type="submit" class="btn btn-primary">Lưu</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="../assets/js/main.js" type="module"></script>
+    <script src="../assets/js/pages/products.js" type="module"></script>
+</body>
+</html>

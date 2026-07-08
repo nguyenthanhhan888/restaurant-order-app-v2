@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tạo Đơn Hàng</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+    <div id="sidebar-overlay" class="sidebar-overlay"></div>
+    <nav id="sidebar" class="sidebar">
+        <div class="app-nav">
+            <a href="./order.html" class="nav-link">Tạo Đơn Hàng</a>
+            <a href="./suppliers.html" class="nav-link">Nhà Cung Cấp</a>
+            <a href="./products.html" class="nav-link">Mặt Hàng</a>
+            <a href="./summary.html" class="nav-link">Lịch Sử</a>
+        </div>
+    </nav>
+
+    <header class="app-header">
+        <button id="hamburger-menu" class="hamburger-menu">☰</button>
+        <div class="header-title">TA-IZAKAYA</div>
+        <div style="width: 40px;"></div> <!-- Spacer -->
+    </header>
+
+    <main>
+        <div class="container">
+            <h1>Tạo Đơn Hàng</h1>
+
+            <div class="form-group">
+                <label for="supplier-select">1. Chọn Nhà Cung Cấp</label>
+                <select id="supplier-select" class="form-control"></select>
+            </div>
+
+            <form id="order-form" class="hidden">
+                <label>2. Chọn sản phẩm và nhập số lượng</label>
+                <div id="order-items-container" class="order-item-list">
+                    <!-- Items will be rendered here by JS -->
+                </div>
+                <button type="submit" class="btn btn-primary" style="margin-top: 1.5rem;">Tạo Đơn Hàng</button>
+            </form>
+
+            <div id="order-notification" class="hidden" style="margin-top: 1rem; padding: 0.75rem; border-radius: 0.25rem; background-color: #d4edda; color: #155724;"></div>
+        </div>
+    </main>
+
+    <script src="../assets/js/main.js" type="module"></script>
+    <script src="../assets/js/pages/order.js" type="module"></script>
+</body>
+</html>

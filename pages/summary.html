@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Xem Đơn Hàng</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+    <div id="sidebar-overlay" class="sidebar-overlay"></div>
+    <nav id="sidebar" class="sidebar">
+        <div class="app-nav">
+            <a href="./order.html" class="nav-link">Tạo Đơn Hàng</a>
+            <a href="./suppliers.html" class="nav-link">Nhà Cung Cấp</a>
+            <a href="./products.html" class="nav-link">Mặt Hàng</a>
+            <a href="./summary.html" class="nav-link">Lịch Sử</a>
+        </div>
+    </nav>
+
+    <header class="app-header">
+        <button id="hamburger-menu" class="hamburger-menu">☰</button>
+        <div class="header-title">TA-IZAKAYA</div>
+        <div style="width: 40px;"></div> <!-- Spacer -->
+    </header>
+
+    <main>
+        <div class="container">
+            <!-- Order Preview Section -->
+            <div id="order-preview-container" class="hidden">
+                <h1>Xem Trước Đơn Hàng</h1>
+                <div class="order-preview-card">
+                    <div class="preview-header">
+                        <h2 id="preview-supplier-name"></h2>
+                        <p id="preview-date"></p>
+                        <p id="preview-time"></p>
+                    </div>
+                    <div id="preview-items-list">
+                        <!-- Preview items will be rendered here -->
+                    </div>
+                </div>
+                <div class="preview-actions">
+                    <button id="back-to-edit-btn" class="btn btn-secondary">Quay lại chỉnh sửa</button>
+                    <button id="complete-order-btn" class="btn btn-primary">Hoàn thành</button>
+                </div>
+            </div>
+
+            <!-- Final Order Slip View -->
+            <div id="final-order-slip-container" class="hidden">
+                <div id="final-order-slip-content" class="order-slip-view">
+                    <div class="preview-header" style="text-align: center;">
+                        <h1 style="margin-bottom: 0.5rem;">ĐƠN ĐẶT HÀNG</h1>
+                        <h2 class="slip-supplier-name"></h2>
+                        <p class="slip-date"></p>
+                    </div>
+                    <div class="slip-items-list"></div>
+                </div>
+                <div class="preview-actions">
+                    <button id="final-done-btn" class="btn btn-primary">Xong</button>
+                </div>
+            </div>
+
+            <!-- Order History Section -->
+            <div id="order-history-container">
+                <h1>Lịch Sử Đơn Hàng</h1>
+                <div class="table-wrapper">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th style="width: 50px;">STT</th>
+                                <th>Ngày</th>
+                                <th>Giờ</th>
+                                <th>Nhà Cung Cấp</th>
+                                <th>Số Mặt Hàng</th>
+                                <th style="width: 220px;">Hành động</th>
+                            </tr>
+                        </thead>
+                        <tbody id="history-table-body">
+                            <!-- History rows will be injected here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Modal for Order Details -->
+    <div id="order-detail-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h2>Chi Tiết Đơn Hàng</h2>
+                <span class="close-button">&times;</span>
+            </div>
+            <div class="order-preview-card" style="border: none; padding: 0; margin-top: 1rem;">
+                <div class="preview-header">
+                    <h3 id="detail-supplier-name"></h3>
+                    <p id="detail-date"></p>
+                    <p id="detail-time"></p>
+                </div>
+                <div id="detail-items-list"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="../assets/js/main.js" type="module"></script>
+    <script src="../assets/js/pages/summary.js" type="module"></script>
+</body>
+</html>
