@@ -1,9 +1,19 @@
 import { init as initStorage } from './services/storage.js';
+import { initLoader, showLoader, hideLoader } from './services/loading.js';
 
-document.addEventListener('DOMContentLoaded', () => {
+const initializeApp = async () => {
+    // Create loader HTML and CSS
+    initLoader();
+
     // Initialize storage to ensure data is ready
-    initStorage();
-
+    // This now fetches data from the server, so we wait for it.
+    showLoader('Đang tải dữ liệu...');
+    try {
+        await initStorage();
+        console.log("Storage initialized.");
+    } finally {
+        hideLoader();
+    }
     // --- Navigation Logic ---
     const hamburgerMenu = document.getElementById('hamburger-menu');
     const sidebar = document.getElementById('sidebar');
@@ -34,5 +44,9 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Dispatch a custom event to let page-specific scripts know that data is ready.
+    document.dispatchEvent(new CustomEvent('app-ready'));
     console.log("App initialized.");
-});
+};
+
+document.addEventListener('DOMContentLoaded', initializeApp);

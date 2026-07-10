@@ -3,7 +3,7 @@ import { generateId } from '../utils/helpers.js';
 
 const PENDING_ORDER_KEY = 'pendingOrder';
 
-document.addEventListener('DOMContentLoaded', () => {
+const runPage = () => {
     const supplierSelect = document.getElementById('supplier-select');
     const orderForm = document.getElementById('order-form');
     const orderItemsContainer = document.getElementById('order-items-container');
@@ -154,4 +154,6 @@ document.addEventListener('DOMContentLoaded', () => {
     // Initial Load
     populateSuppliers();
     restorePendingOrder();
-});
+};
+
+document.addEventListener('app-ready', runPage);

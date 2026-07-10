@@ -1,7 +1,8 @@
 import { getData, saveData } from '../services/storage.js';
 import { generateId } from '../utils/helpers.js';
+import { showLoader, hideLoader } from '../services/loading.js';
 
-document.addEventListener('DOMContentLoaded', () => {
+const runPage = () => {
     // Main elements
     const supplierSelect = document.getElementById('supplier-select');
     const productManagementSection = document.getElementById('product-management-section');
@@ -95,7 +96,7 @@ document.addEventListener('DOMContentLoaded', () => {
         productModal.style.display = 'none';
     };
 
-    const handleFormSubmit = (event) => {
+    const handleFormSubmit = async (event) => {
         event.preventDefault();
         const supplierId = supplierSelect.value;
         const id = productIdInput.value;
@@ -135,12 +136,18 @@ document.addEventListener('DOMContentLoaded', () => {
             data.items.push(newItem);
         }
 
-        saveData(data);
-        renderProducts(supplierId);
-        closeModal();
+        showLoader('Đang lưu...');
+        await saveData(data);
+
+        // Use a small timeout to make the loader feel more substantial
+        setTimeout(() => {
+            hideLoader();
+            renderProducts(supplierId);
+            closeModal();
+        }, 300);
     };
 
-    const handleTableClick = (event) => {
+    const handleTableClick = async (event) => {
         const target = event.target;
         const id = target.dataset.id;
 
@@ -157,8 +164,14 @@ document.addEventListener('DOMContentLoaded', () => {
             if (confirm(`Bạn có chắc chắn muốn xóa mặt hàng "${name}"?`)) {
                 let data = getData();
                 data.items = data.items.filter(i => i.id !== id);
-                saveData(data);
-                renderProducts(supplierSelect.value);
+                
+                showLoader('Đang xóa...');
+                await saveData(data);
+
+                setTimeout(() => {
+                    hideLoader();
+                    renderProducts(supplierSelect.value);
+                }, 300);
             }
         }
     };
@@ -184,4 +197,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initial Load
     populateSuppliers();
-});
+};
+
+document.addEventListener('app-ready', runPage);

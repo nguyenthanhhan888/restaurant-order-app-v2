@@ -1,9 +1,10 @@
 import { getData, saveData } from '../services/storage.js';
+import { showLoader, hideLoader } from '../services/loading.js';
 
 const PENDING_ORDER_KEY = 'pendingOrder';
 const COMPLETED_ORDER_ID_KEY = 'completedOrderId';
 
-document.addEventListener('DOMContentLoaded', () => {
+const runPage = () => {
     // --- DOM Elements ---
     const previewContainer = document.getElementById('order-preview-container');
     const historyContainer = document.getElementById('order-history-container');
@@ -22,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
         renderPreview(JSON.parse(pendingOrderJSON));
     } else if (completedOrderId) {
         // Final Order Slip Mode
-        showFinalSlipView();
+        showFinalSlipView(); // This function just handles showing/hiding elements
         renderFinalOrderSlip(completedOrderId);
     } else {
         // History Mode
@@ -45,19 +46,26 @@ document.addEventListener('DOMContentLoaded', () => {
         window.location.href = './order.html';
     });
 
-    document.getElementById('complete-order-btn').addEventListener('click', function() {
+    document.getElementById('complete-order-btn').addEventListener('click', async function() {
         this.disabled = true; // Prevent double-click
         const pendingOrder = JSON.parse(sessionStorage.getItem(PENDING_ORDER_KEY));
         if (!pendingOrder) return;
 
+        showLoader('Đang hoàn tất đơn hàng...');
+
         const data = getData();
         data.orders.push(pendingOrder);
         data.orders.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-        saveData(data);
+        await saveData(data);
 
-        sessionStorage.removeItem(PENDING_ORDER_KEY);
-        sessionStorage.setItem(COMPLETED_ORDER_ID_KEY, pendingOrder.id);
-        window.location.reload();
+        setTimeout(() => {
+            // Instead of reloading, we now directly render the final slip
+            // with the data we already have.
+            sessionStorage.removeItem(PENDING_ORDER_KEY);
+            hideLoader();
+            showFinalSlipView();
+            renderFinalOrderSlip(pendingOrder); // Pass the object directly
+        }, 500); // A slightly longer delay for order completion
     });
 
     // Final Slip Actions
@@ -66,7 +74,9 @@ document.addEventListener('DOMContentLoaded', () => {
         sessionStorage.removeItem(PENDING_ORDER_KEY); // Ensure pending order is also cleared
         window.location.href = './order.html';
     });
-});
+};
+
+document.addEventListener('app-ready', runPage);
 
 function showHistoryView() {
     document.getElementById('order-preview-container').classList.add('hidden');
@@ -135,7 +145,7 @@ function renderHistory() {
     });
 }
 
-function handleHistoryTableClick(event) {
+async function handleHistoryTableClick(event) {
     const target = event.target;
     const orderId = target.dataset.id;
 
@@ -162,8 +172,13 @@ function handleHistoryTableClick(event) {
         if (confirm('Bạn có chắc chắn muốn xóa đơn hàng này?')) {
             let data = getData();
             data.orders = data.orders.filter(o => o.id !== orderId);
-            saveData(data);
-            renderHistory();
+            showLoader('Đang xóa...');
+            await saveData(data);
+
+            setTimeout(() => {
+                hideLoader();
+                renderHistory();
+            }, 300);
         }
         return;
     }
@@ -185,9 +200,15 @@ function renderOrderDetailModal(order) {
     detailModal.style.display = 'block';
 }
 
-function renderFinalOrderSlip(orderId) {
+function renderFinalOrderSlip(orderOrId) {
+    let order;
     const { orders, suppliers, groups } = getData();
-    const order = orders.find(o => o.id === orderId);
+
+    if (typeof orderOrId === 'string') { // It's an ID from sessionStorage
+        order = orders.find(o => o.id === orderOrId);
+    } else { // It's the order object passed directly after completion
+        order = orderOrId;
+    }
 
     if (!order) {
         // If order not found (e.g., page reloaded after a while), just show history
@@ -196,6 +217,9 @@ function renderFinalOrderSlip(orderId) {
         renderHistory();
         return;
     }
+
+    // Set the ID in sessionStorage so if the user reloads this page, it can be found again.
+    sessionStorage.setItem(COMPLETED_ORDER_ID_KEY, order.id);
 
     const supplier = suppliers.find(s => s.id === order.supplierId);
     const slipContainer = document.getElementById('final-order-slip-content');

@@ -1,7 +1,8 @@
 import { getData, saveData } from '../services/storage.js';
 import { generateId } from '../utils/helpers.js';
+import { showLoader, hideLoader } from '../services/loading.js';
 
-document.addEventListener('DOMContentLoaded', () => {
+const runPage = () => {
     const supplierModal = document.getElementById('supplier-modal');
     const addSupplierBtn = document.getElementById('add-supplier-btn');
     const closeModalBtn = document.querySelector('.close-button');
@@ -50,7 +51,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    const handleFormSubmit = (event) => {
+    const handleFormSubmit = async (event) => {
         event.preventDefault();
         const name = supplierNameInput.value.trim();
         const id = supplierIdInput.value;
@@ -84,12 +85,18 @@ document.addEventListener('DOMContentLoaded', () => {
             data.suppliers.push(newSupplier);
         }
 
-        saveData(data);
-        renderSuppliers();
-        closeModal();
+        showLoader('Đang lưu...');
+        await saveData(data);
+
+        // Use a small timeout to make the loader feel more substantial
+        setTimeout(() => {
+            hideLoader();
+            renderSuppliers();
+            closeModal();
+        }, 300);
     };
 
-    const handleTableClick = (event) => {
+    const handleTableClick = async (event) => {
         const target = event.target;
         const id = target.dataset.id;
 
@@ -108,8 +115,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 data.suppliers = data.suppliers.filter(s => s.id !== id);
                 data.groups = data.groups.filter(g => g.supplierId !== id);
                 data.items = data.items.filter(i => i.supplierId !== id);
-                saveData(data);
-                renderSuppliers();
+
+                showLoader('Đang xóa...');
+                await saveData(data);
+                setTimeout(() => {
+                    hideLoader();
+                    renderSuppliers();
+                }, 300);
             }
         }
     };
@@ -127,4 +139,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Initial render
     renderSuppliers();
-});
+};
+
+document.addEventListener('app-ready', runPage);
