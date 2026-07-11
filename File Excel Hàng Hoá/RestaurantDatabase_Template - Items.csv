@@ -1,0 +1,140 @@
+id,supplierId,groupId,name,unit
+itm_minze_metro,sup_metro,grp_rau,Minze,Hộp
+itm_hanhla_metro,sup_metro,grp_rau,Hành lá,Túi
+itm_salatdo_metro,sup_metro,grp_rau,Salat đỏ,Túi
+itm_chanh_metro,sup_metro,grp_rau,Chanh,Kit
+itm_cam_metro,sup_metro,grp_rau,Cam,Kit
+itm_tao_metro,sup_metro,grp_rau,Táo,Kit
+itm_thymian_metro,sup_metro,grp_rau,Thymian,Kit
+itm_otsung_metro,sup_metro,grp_rau,Ớt sừng,Kit
+itm_catim_metro,sup_metro,grp_rau,Cà tím,Kit
+itm_rosmarin_metro,sup_metro,grp_rau,Rosmarin,Kit
+itm_toicu_metro,sup_metro,grp_rau,Tỏi củ,Kit
+itm_khoailang_metro,sup_metro,grp_rau,Khoai lang,Kit
+itm_dauan_metro,sup_metro,grp_kho,Dầu ăn,Kit
+itm_duongvang_metro,sup_metro,grp_kho,Đường vàng,Kit
+itm_duongtrang_metro,sup_metro,grp_kho,Đường trắng,Kit
+itm_giaysusi_metro,sup_metro,grp_kho,Giấy Susi,Túi
+itm_schlagsahne_metro,sup_metro,grp_kho,Schlagsahne,Túi
+itm_speisequark_metro,sup_metro,grp_kho,Speisequark,Túi
+itm_mascarpone_metro,sup_metro,grp_kho,Mascarpone,Túi
+itm_kemchanh_metro,sup_metro,grp_kho,Kem chanh,Túi
+itm_banhsoke_metro,sup_metro,grp_kho,Bánh Soke,Túi
+itm_kemvanilla_metro,sup_metro,grp_kho,Kem Vanilla,Hộp
+itm_frischkase_metro,sup_metro,grp_kho,Frisch Käse,Hộp
+itm_banhtaquito_metro,sup_metro,grp_kho,Bánh Taquito,Túi
+itm_cahunkhoi_metro,sup_metro,grp_kho,Cá hun khói,Miếng
+itm_ngohop_metro,sup_metro,grp_kho,Ngô hộp,Hộp
+itm_sua35_metro,sup_metro,grp_kho,Sữa 3.5%,Hộp
+itm_maggi_metro,sup_metro,grp_kho,Maggi,Chai
+itm_muoi_metro,sup_metro,grp_kho,Muối,Kg
+itm_mi_metro,sup_metro,grp_kho,Mì,Hộp
+itm_kemdua_metro,sup_metro,grp_kho,Kem Dừa,Túi
+itm_hatieu_metro,sup_metro,grp_kho,Hạt tiêu,Kg
+itm_otbot_metro,sup_metro,grp_kho,Ớt bột,Túi
+itm_bachtuoc_metro,sup_metro,grp_kho,Bạch Tuộc,Con
+itm_banhschoko_metro,sup_metro,grp_kho,Bánh Schoko,Hộp
+itm_schokososse_metro,sup_metro,grp_kho,Schoko Sosse,Chai
+itm_nuaruachen_metro,sup_metro,grp_vs,Nước rửa chén,Can
+itm_nualaukinh_metro,sup_metro,grp_vs,Nước lau kính,Can
+itm_nuaruatay_metro,sup_metro,grp_vs,Nước rửa tay của khách,Can
+itm_fettloser_metro,sup_metro,grp_vs,Fettlöser,Can
+itm_thitbonam_metro,sup_metro,grp_thit,Thịt bò nạm,Túi
+itm_boudon_metro,sup_metro,grp_thit,Bò Udon,Túi
+itm_boxao_metro,sup_metro,grp_thit,Bò xào,Túi
+itm_vit_metro,sup_metro,grp_thit,Vịt,Túi
+itm_ucga_metro,sup_metro,grp_thit,Ức gà,Túi
+itm_duiga_metro,sup_metro,grp_thit,Đùi gà,Hộp
+itm_thucannv_metro,sup_metro,grp_thit,Thức ăn nhân viên,Kg
+itm_trungga_metro,sup_metro,grp_thit,Trứng gà,Kit
+itm_trung,sup_edeka,,Trứng,Kit
+itm_brokkoli,sup_edeka,,Brokkoli,Kit
+itm_pakchoi,sup_edeka,,Pak Choi,Kit
+itm_kleinermais,sup_edeka,,Kleiner Mais,Kit
+itm_zuckererbsen,sup_edeka,,Zuckererbsen,Kit
+itm_mixsalat,sup_edeka,,Mix Salat,Kit
+itm_krauterseitling,sup_edeka,,Kräuterseitling,Kg
+itm_babyspinat,sup_edeka,,Babyspinat,Túi
+itm_normalerspinat,sup_edeka,,Normaler Spinat,Kit
+itm_tomaten,sup_edeka,,Tomaten,Kit
+itm_spargel,sup_edeka,,Spargel,Bó
+itm_paprika,sup_edeka,,Paprika,Kit
+itm_karotten,sup_edeka,,Karotten,Kit
+itm_avocado,sup_edeka,,Avocado,Kit
+itm_mango,sup_edeka,,Mango,Kit
+itm_rettich,sup_edeka,,Rettich,Kit
+itm_gurke,sup_edeka,,Gurke,Kit
+itm_schnittlauch,sup_edeka,,Schnittlauch,Kit
+itm_dill,sup_edeka,,Dill,Kit
+itm_shisomix,sup_edeka,,Shiso Mix,Kit
+itm_kumquat,sup_edeka,,Kumquat,Kit
+itm_kurbis,sup_edeka,,Kürbis,Kit
+itm_susskartofel,sup_edeka,,Süsskartofel,Kit
+itm_romytomaten,sup_edeka,,Romy Tomaten,Kit
+itm_rucola,sup_edeka,,Rucola,Kit
+itm_knoblauch,sup_edeka,,Knoblauch,Bì
+itm_sake,sup_japan,,Sake (Rượu Sake),Thùng
+itm_yuzusaft,sup_japan,,Yuzu Saft,Gói
+itm_tobikoorange,sup_japan,,Tobiko Orange (Trứng cá chuồn màu cam),Thùng
+itm_surimimaki,sup_japan,,Surimi Maki Sticks (Thanh cua cuộn maki),Thùng
+itm_unagikabayaki,sup_japan,,Unagi Kabayaki (Lươn nướng sốt),Thùng
+itm_kikkoman,sup_japan,,Kikkoman (Nước tương Kikkoman),Thùng
+itm_sakechien,sup_japan,,Sake chiên bán (Sake chiên),Thùng
+itm_sakelau,sup_japan,,Sake lẩu),Thùng
+itm_misoweiss,sup_japan,,Miso Weiss (Tương miso trắng),Thùng
+itm_sushiyotakuan,sup_japan,,Sushiyo Takuan (Củ cải vàng muối),Thùng
+itm_katsuobushi,sup_japan,,Katsuobushi (Cá bào Nhật Bản),Thùng
+itm_honteri,sup_japan,,Honteri (Rượu gia vị Mirin Honteri),Thùng
+itm_suehiro,sup_japan,,Suehiro,Thùng
+itm_miola,sup_japan,,Miola,Lọ
+itm_gaosushi,sup_japan,,Gạo Sushi,Bao
+itm_gyozachicken,sup_japan,,Gyoza Chicken (Bánh xếp nhân gà),Thùng
+itm_dashinomoto,sup_japan,,Dashinomoto (Bột cá cốt súp),Hộp
+itm_silkentofu,sup_japan,,Silken Tofu Firm (Đậu phụ lụa nấu súp),Thùng
+itm_wakame,sup_japan,,Wakame (Rong biển khô),Thùng
+itm_tom2125,sup_japan,,Tôm 21/25,Thùng
+itm_tom1315,sup_japan,,Tôm 13/15,Thùng
+itm_gomawakame,sup_japan,,Goma Wakame (Rong biển trộn mè),Gói
+itm_mayonnaisejp,sup_japan,,Mayonnaise (Sốt Mayonnaise Nhật),Thùng
+itm_botchienjp,sup_japan,,Bột chiên,Bao
+itm_biaasahi,sup_japan,,Bia Asahi,Thùng
+itm_edamame,sup_japan,,Edamame (Đậu nành Nhật Bản),Thùng
+itm_udon,sup_japan,,Udon,Thùng
+itm_crabjp,sup_japan,,Crab,Hộp
+itm_gao_asia,sup_asia,,Gạo,Bao
+itm_mitom_asia,sup_asia,,Mì tôm,Thùng
+itm_bun_asia,sup_asia,,Bún,Gói
+itm_sa_asia,sup_asia,,Sả,Gói
+itm_gung_asia,sup_asia,,Gừng,Kg
+itm_dauhao_asia,sup_asia,,Dầu hào,Chai
+itm_vung_asia,sup_asia,,Vừng (Mè),Chai
+itm_hatnem_asia,sup_asia,,Hạt nêm,Gói
+itm_michinh_asia,sup_asia,,Mì chính (Bột ngọt),Can
+itm_nuocmam_asia,sup_asia,,Nước mắm,Can
+itm_mango_asia,sup_asia,,Mango (Xoài),Hộp
+itm_tofu_asia,sup_asia,,Tofu (Đậu phụ),Hộp
+itm_tuongot_asia,sup_asia,,Tương ớt con ngỗng (Sriracha),Chai
+itm_chethai_asia,sup_asia,,Chè Thái Nguyên,Thùng
+itm_dumplingveg_asia,sup_asia,,Dumpling vegetable (Há cảo chay),Thùng
+itm_lychee_asia,sup_asia,,Lychee (Vải thiều),Thùng
+itm_aloeking_asia,sup_asia,,Aloe King (Nước nha đam),Thùng
+itm_mukimame_asia,sup_asia,,Mukimame / Edamame (Đậu nành edamame đông đá),Thùng
+itm_chilipaste_asia,sup_asia,,Chili paste / Đậu bản tương (Dầu đậu Tàu),Thùng
+itm_chagioga_asia,sup_asia,,Chả giò gà,Thùng
+itm_hacaotom_asia,sup_asia,,Há cảo tôm,Thùng
+itm_mi_asia,sup_asia,,Mì,Thùng
+itm_caphe_asia,sup_asia,,Cà phê,Thùng
+itm_daume_asia,sup_asia,,Dầu mè (Dầu vừng),Thùng
+itm_erdnusscreme_asia,sup_asia,,Erdnusscreme (Bơ đậu phộng),Thùng
+itm_hoi_asia,sup_asia,,Hồi / Tía tô (Hồi sim),Gói
+itm_botchienxu_asia,sup_asia,,Bột chiên xù,Gói
+itm_sambal_asia,sup_asia,,Sambal Oelek (Chili sốt ớt),Gói
+itm_ga_asia,sup_asia,,Gà,Gói
+itm_tomboc_asia,sup_asia,,Tôm bọc khoai tây,Gói
+itm_riengda_asia,sup_asia,,Riềng đá (Riềng đông lạnh),Gói
+itm_xidaudac_asia,sup_asia,,Xì dầu đặc (Hắc xì dầu),Thùng
+itm_xidauloang_asia,sup_asia,,Xì dầu loãng.,Gói
+itm_phongtom_asia,sup_asia,,Phồng tôm,Gói
+itm_ex6tkfy1j,sup_asia,,Trứng Vịt,Kít
+itm_266la6ob6,sup_asia,,Tum yum,Lọ
+itm_m34yvufbp,sup_asia,,Curry,Lọ

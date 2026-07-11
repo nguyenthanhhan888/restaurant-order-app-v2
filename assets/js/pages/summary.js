@@ -1,4 +1,4 @@
-import { getData, saveData } from '../services/storage.js';
+import { getData, createOrder, deleteOrder } from '../services/storage.js';
 import { showLoader, hideLoader } from '../services/loading.js';
 
 const PENDING_ORDER_KEY = 'pendingOrder';
@@ -53,19 +53,20 @@ const runPage = () => {
 
         showLoader('Đang hoàn tất đơn hàng...');
 
-        const data = getData();
-        data.orders.push(pendingOrder);
-        data.orders.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
-        await saveData(data);
-
-        setTimeout(() => {
+        try {
+            // The structure of pendingOrder matches what createOrder expects
+            await createOrder(pendingOrder);
             // Instead of reloading, we now directly render the final slip
             // with the data we already have.
             sessionStorage.removeItem(PENDING_ORDER_KEY);
-            hideLoader();
             showFinalSlipView();
             renderFinalOrderSlip(pendingOrder); // Pass the object directly
-        }, 500); // A slightly longer delay for order completion
+        } catch (error) {
+            console.error("Failed to create order:", error);
+            alert(`Lỗi: ${error.message}`);
+        } finally {
+            hideLoader();
+        }
     });
 
     // Final Slip Actions
@@ -98,7 +99,7 @@ function showFinalSlipView() {
 
 function renderPreview(pendingOrder) {
     const { suppliers, groups } = getData();
-    const supplier = suppliers.find(s => s.id === pendingOrder.supplierId);
+    const supplier = suppliers.find(s => s.id === pendingOrder.supplier_id);
     if (!supplier) {
         console.error("Supplier not found for pending order");
         return;
@@ -126,7 +127,7 @@ function renderHistory() {
     }
 
     orders.forEach((order, index) => {
-        const supplier = suppliers.find(s => s.id === order.supplierId);
+        const supplier = suppliers.find(s => s.id === order.supplier_id);
         const orderDate = new Date(order.createdAt);
         const row = document.createElement('tr');
         row.innerHTML = `
@@ -170,15 +171,16 @@ async function handleHistoryTableClick(event) {
 
     if (target.classList.contains('delete-btn')) {
         if (confirm('Bạn có chắc chắn muốn xóa đơn hàng này?')) {
-            let data = getData();
-            data.orders = data.orders.filter(o => o.id !== orderId);
             showLoader('Đang xóa...');
-            await saveData(data);
-
-            setTimeout(() => {
-                hideLoader();
+            try {
+                await deleteOrder(orderId);
                 renderHistory();
-            }, 300);
+            } catch (error) {
+                console.error("Failed to delete order:", error);
+                alert(`Lỗi: ${error.message}`);
+            } finally {
+                hideLoader();
+            }
         }
         return;
     }
@@ -186,7 +188,7 @@ async function handleHistoryTableClick(event) {
 
 function renderOrderDetailModal(order) {
     const { suppliers, groups } = getData();
-    const supplier = suppliers.find(s => s.id === order.supplierId);
+    const supplier = suppliers.find(s => s.id === order.supplier_id);
 
     const detailModal = document.getElementById('order-detail-modal');
     document.getElementById('detail-supplier-name').textContent = supplier ? supplier.name : 'Không rõ';
@@ -221,7 +223,7 @@ function renderFinalOrderSlip(orderOrId) {
     // Set the ID in sessionStorage so if the user reloads this page, it can be found again.
     sessionStorage.setItem(COMPLETED_ORDER_ID_KEY, order.id);
 
-    const supplier = suppliers.find(s => s.id === order.supplierId);
+    const supplier = suppliers.find(s => s.id === order.supplier_id);
     const slipContainer = document.getElementById('final-order-slip-content');
     const orderDate = new Date(order.createdAt);
 
@@ -234,7 +236,7 @@ function renderFinalOrderSlip(orderOrId) {
 
 function renderItemsList(containerEl, order, supplier, allGroups) {
     containerEl.innerHTML = '';
-    const supplierGroups = supplier ? allGroups.filter(g => g.supplierId === supplier.id) : [];
+    const supplierGroups = supplier ? allGroups.filter(g => g.supplier_id === supplier.id) : [];
     const hasGroups = supplierGroups.length > 0;
 
     if (hasGroups) {
@@ -242,7 +244,7 @@ function renderItemsList(containerEl, order, supplier, allGroups) {
         const allItems = getData().items;
         order.items.forEach(item => {
             const fullItem = allItems.find(i => i.id === item.itemId);
-            const groupId = fullItem ? fullItem.groupId : null;
+            const groupId = fullItem ? fullItem.group_id : null;
             if (!itemMap.has(groupId)) {
                 itemMap.set(groupId, []);
             }

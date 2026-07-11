@@ -1,4 +1,4 @@
-import { init as initStorage } from './services/storage.js';
+import { init as initStorage, getData } from './services/storage.js';
 import { initLoader, showLoader, hideLoader } from './services/loading.js';
 
 const initializeApp = async () => {
@@ -11,6 +11,8 @@ const initializeApp = async () => {
     try {
         await initStorage();
         console.log("Storage initialized.");
+        // DEBUG: In dữ liệu ra để kiểm tra xem nó có được tìm nạp chính xác không.
+        console.log("Data in cache:", getData());
     } finally {
         hideLoader();
     }

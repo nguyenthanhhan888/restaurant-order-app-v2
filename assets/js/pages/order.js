@@ -22,8 +22,8 @@ const runPage = () => {
 
     const renderItems = (supplierId, pendingItems = []) => {
         const { items, groups } = getData();
-        const supplierItems = items.filter(item => item.supplierId === supplierId);
-        const supplierGroups = groups.filter(group => group.supplierId === supplierId);
+        const supplierItems = items.filter(item => item.supplier_id === supplierId);
+        const supplierGroups = groups.filter(group => group.supplier_id === supplierId);
         orderItemsContainer.innerHTML = '';
         orderNotification.classList.add('hidden');
 
@@ -35,13 +35,13 @@ const runPage = () => {
         if (supplierGroups.length > 0) {
             // Grouped view
             supplierGroups.forEach(group => {
-                const groupItems = supplierItems.filter(item => item.groupId === group.id);
+                const groupItems = supplierItems.filter(item => item.group_id === group.id);
                 const pendingGroupItems = pendingItems.filter(pi => groupItems.some(gi => gi.id === pi.itemId));
                 if (groupItems.length > 0) {
                     orderItemsContainer.innerHTML += createGroupedHTML(group, groupItems, pendingGroupItems);
                 }
             });
-            const ungroupedItems = supplierItems.filter(item => !item.groupId);
+            const ungroupedItems = supplierItems.filter(item => !item.group_id);
             const pendingUngroupedItems = pendingItems.filter(pi => ungroupedItems.some(ui => ui.id === pi.itemId));
             if (ungroupedItems.length > 0) {
                 orderItemsContainer.innerHTML += createGroupedHTML({ name: 'Chưa phân loại' }, ungroupedItems, pendingUngroupedItems);
@@ -113,7 +113,7 @@ const runPage = () => {
 
         const pendingOrder = {
             id: generateId('ord'),
-            supplierId: supplierId,
+            supplier_id: supplierId,
             createdAt: new Date().toISOString(),
             items: orderItems,
         };
@@ -128,9 +128,9 @@ const runPage = () => {
 
         try {
             const pendingOrder = JSON.parse(pendingOrderJSON);
-            supplierSelect.value = pendingOrder.supplierId;
+            supplierSelect.value = pendingOrder.supplier_id;
             orderForm.classList.remove('hidden');
-            renderItems(pendingOrder.supplierId, pendingOrder.items);
+            renderItems(pendingOrder.supplier_id, pendingOrder.items);
         } catch (e) {
             console.error("Could not restore pending order", e);
             sessionStorage.removeItem(PENDING_ORDER_KEY);

@@ -1,4 +1,4 @@
-import { getData, saveData } from '../services/storage.js';
+import { getData, addSupplier, updateSupplier, deleteSupplier } from '../services/storage.js';
 import { generateId } from '../utils/helpers.js';
 import { showLoader, hideLoader } from '../services/loading.js';
 
@@ -55,7 +55,6 @@ const runPage = () => {
         event.preventDefault();
         const name = supplierNameInput.value.trim();
         const id = supplierIdInput.value;
-        const data = getData();
 
         // Validate name
         if (!name) {
@@ -65,6 +64,7 @@ const runPage = () => {
         }
 
         // Check for duplicate name
+        const data = getData();
         const isDuplicate = data.suppliers.some(s => s.name.toLowerCase() === name.toLowerCase() && s.id !== id);
         if (isDuplicate) {
             nameError.textContent = 'Tên nhà cung cấp đã tồn tại.';
@@ -72,28 +72,25 @@ const runPage = () => {
             return;
         }
 
-        if (id) { // Edit mode
-            const supplier = data.suppliers.find(s => s.id === id);
-            if (supplier) {
-                supplier.name = name;
-            }
-        } else { // Add mode
-            const newSupplier = {
-                id: generateId('sup'),
-                name: name,
-            };
-            data.suppliers.push(newSupplier);
-        }
-
         showLoader('Đang lưu...');
-        await saveData(data);
-
-        // Use a small timeout to make the loader feel more substantial
-        setTimeout(() => {
-            hideLoader();
+        try {
+            if (id) { // Edit mode
+                await updateSupplier(id, { name });
+            } else { // Add mode
+                const newSupplier = {
+                    id: generateId('sup'),
+                    name: name,
+                };
+                await addSupplier(newSupplier);
+            }
             renderSuppliers();
             closeModal();
-        }, 300);
+        } catch (error) {
+            console.error("Failed to save supplier:", error);
+            alert(`Lỗi: ${error.message}`);
+        } finally {
+            hideLoader();
+        }
     };
 
     const handleTableClick = async (event) => {
@@ -111,17 +108,16 @@ const runPage = () => {
         if (target.classList.contains('delete-btn')) {
             const name = target.dataset.name;
             if (confirm(`Bạn có chắc chắn muốn xóa nhà cung cấp "${name}"?\n\nHành động này sẽ xóa tất cả các nhóm và mặt hàng liên quan.`)) {
-                let data = getData();
-                data.suppliers = data.suppliers.filter(s => s.id !== id);
-                data.groups = data.groups.filter(g => g.supplierId !== id);
-                data.items = data.items.filter(i => i.supplierId !== id);
-
                 showLoader('Đang xóa...');
-                await saveData(data);
-                setTimeout(() => {
-                    hideLoader();
+                try {
+                    await deleteSupplier(id);
                     renderSuppliers();
-                }, 300);
+                } catch (error) {
+                    console.error("Failed to delete supplier:", error);
+                    alert(`Lỗi: ${error.message}`);
+                } finally {
+                    hideLoader();
+                }
             }
         }
     };
