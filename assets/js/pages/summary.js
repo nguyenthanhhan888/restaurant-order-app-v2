@@ -107,7 +107,7 @@ function renderPreview(pendingOrder) {
 
     // Header
     document.getElementById('preview-supplier-name').textContent = supplier.name;
-    const orderDate = new Date(pendingOrder.createdAt);
+    const orderDate = new Date(pendingOrder.created_at);
     document.getElementById('preview-date').textContent = `Ngày: ${orderDate.toLocaleDateString('vi-VN')}`;
     document.getElementById('preview-time').textContent = `Giờ: ${orderDate.toLocaleTimeString('vi-VN')}`;
 
@@ -128,7 +128,7 @@ function renderHistory() {
 
     orders.forEach((order, index) => {
         const supplier = suppliers.find(s => s.id === order.supplier_id);
-        const orderDate = new Date(order.createdAt);
+        const orderDate = new Date(order.created_at);
         const row = document.createElement('tr');
         row.innerHTML = `
             <td>${index + 1}</td>
@@ -192,7 +192,7 @@ function renderOrderDetailModal(order) {
 
     const detailModal = document.getElementById('order-detail-modal');
     document.getElementById('detail-supplier-name').textContent = supplier ? supplier.name : 'Không rõ';
-    const orderDate = new Date(order.createdAt);
+    const orderDate = new Date(order.created_at);
     document.getElementById('detail-date').textContent = `Ngày: ${orderDate.toLocaleDateString('vi-VN')}`;
     document.getElementById('detail-time').textContent = `Giờ: ${orderDate.toLocaleTimeString('vi-VN')}`;
 
@@ -225,7 +225,7 @@ function renderFinalOrderSlip(orderOrId) {
 
     const supplier = suppliers.find(s => s.id === order.supplier_id);
     const slipContainer = document.getElementById('final-order-slip-content');
-    const orderDate = new Date(order.createdAt);
+    const orderDate = new Date(order.created_at);
 
     slipContainer.querySelector('h2').textContent = supplier ? supplier.name : 'Không rõ';
     slipContainer.querySelector('.slip-date').textContent = `Ngày: ${orderDate.toLocaleDateString('vi-VN')}`;

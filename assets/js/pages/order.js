@@ -114,7 +114,7 @@ const runPage = () => {
         const pendingOrder = {
             id: generateId('ord'),
             supplier_id: supplierId,
-            createdAt: new Date().toISOString(),
+            created_at: new Date().toISOString(),
             items: orderItems,
         };
 
