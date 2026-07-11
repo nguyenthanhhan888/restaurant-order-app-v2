@@ -8,6 +8,10 @@ const runPage = () => {
     const orderForm = document.getElementById('order-form');
     const orderItemsContainer = document.getElementById('order-items-container');
     const orderNotification = document.getElementById('order-notification');
+    const searchInput = document.getElementById('search-input');
+    const sortBtn = document.getElementById('sort-btn');
+
+    let currentSort = 'asc'; // 'asc' or 'desc'
 
     const populateSuppliers = () => {
         const { suppliers } = getData();
@@ -20,12 +24,37 @@ const runPage = () => {
         });
     };
 
-    const renderItems = (supplierId, pendingItems = []) => {
-        const { items, groups } = getData();
-        const supplierItems = items.filter(item => item.supplier_id === supplierId);
+    const renderItems = (supplierId, pendingItems = [], searchTerm = '') => {
+        let { items, groups } = getData();
+        let supplierItems = items.filter(item => item.supplier_id === supplierId);
         const supplierGroups = groups.filter(group => group.supplier_id === supplierId);
         orderItemsContainer.innerHTML = '';
         orderNotification.classList.add('hidden');
+
+        // 1. Sort data
+        const groupMap = new Map(groups.map(g => [g.id, g.name]));
+        supplierItems.sort((a, b) => {
+            const groupNameA = groupMap.get(a.group_id) || 'zzzz'; // Ungrouped items last
+            const groupNameB = groupMap.get(b.group_id) || 'zzzz';
+
+            const groupCompare = groupNameA.localeCompare(groupNameB);
+            if (groupCompare !== 0) {
+                return groupCompare; // Sort by group name first
+            }
+
+            // If in the same group, sort by item name
+            const nameA = a.name.toLowerCase();
+            const nameB = b.name.toLowerCase();
+            return currentSort === 'asc' ? nameA.localeCompare(nameB) : nameB.localeCompare(nameA);
+        });
+
+        // 2. Filter data
+        const lowerCaseSearchTerm = searchTerm.toLowerCase();
+        if (lowerCaseSearchTerm) {
+            supplierItems = supplierItems.filter(item => 
+                item.name.toLowerCase().includes(lowerCaseSearchTerm)
+            );
+        }
 
         if (supplierItems.length === 0) {
             orderItemsContainer.innerHTML = '<p>Nhà cung cấp này chưa có mặt hàng nào.</p>';
@@ -142,14 +171,28 @@ const runPage = () => {
         const supplierId = supplierSelect.value;
         if (supplierId) {
             orderForm.classList.remove('hidden');
-            renderItems(supplierId);
+            // When supplier changes, render with current sort and empty search
+            renderItems(supplierId, [], searchInput.value);
         } else {
             orderForm.classList.add('hidden');
             orderItemsContainer.innerHTML = '';
         }
+        searchInput.value = ''; // Clear search on supplier change
     });
 
     orderForm.addEventListener('submit', handleFormSubmit);
+
+    searchInput.addEventListener('input', (e) => {
+        const pendingOrder = JSON.parse(sessionStorage.getItem(PENDING_ORDER_KEY) || '{}');
+        renderItems(supplierSelect.value, pendingOrder.items || [], e.target.value);
+    });
+
+    sortBtn.addEventListener('click', () => {
+        currentSort = currentSort === 'asc' ? 'desc' : 'asc';
+        sortBtn.textContent = currentSort === 'asc' ? 'Sắp xếp A-Z' : 'Sắp xếp Z-A';
+        const pendingOrder = JSON.parse(sessionStorage.getItem(PENDING_ORDER_KEY) || '{}');
+        renderItems(supplierSelect.value, pendingOrder.items || [], searchInput.value);
+    });
 
     // Initial Load
     populateSuppliers();

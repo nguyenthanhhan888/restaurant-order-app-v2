@@ -11,6 +11,7 @@ const runPage = () => {
     const historyTableBody = document.getElementById('history-table-body');
     const detailModal = document.getElementById('order-detail-modal');
     const finalOrderSlipContainer = document.getElementById('final-order-slip-container');
+    const searchInput = document.getElementById('search-input');
     const closeDetailModalBtn = detailModal.querySelector('.close-button');
 
     // --- Routing ---
@@ -39,6 +40,12 @@ const runPage = () => {
         }
     });
     historyTableBody.addEventListener('click', handleHistoryTableClick);
+    searchInput.addEventListener('input', (e) => {
+        // Only search if we are in the history view
+        if (!historyContainer.classList.contains('hidden')) {
+            renderHistory(e.target.value);
+        }
+    });
 
     // --- Assign button events ONCE ---
     // Preview Actions
@@ -116,13 +123,22 @@ function renderPreview(pendingOrder) {
     renderItemsList(itemsContainer, pendingOrder, supplier, groups);
 }
 
-function renderHistory() {
-    const { orders, suppliers } = getData();
+function renderHistory(searchTerm = '') {
+    let { orders, suppliers } = getData();
     const historyTableBody = document.getElementById('history-table-body');
     historyTableBody.innerHTML = '';
 
+    const lowerCaseSearchTerm = searchTerm.toLowerCase();
+    if (lowerCaseSearchTerm) {
+        const supplierMap = new Map(suppliers.map(s => [s.id, s.name.toLowerCase()]));
+        orders = orders.filter(order => {
+            const supplierName = supplierMap.get(order.supplier_id) || '';
+            return supplierName.includes(lowerCaseSearchTerm);
+        });
+    }
+
     if (orders.length === 0) {
-        historyTableBody.innerHTML = '<tr><td colspan="6" style="text-align: center;">Chưa có lịch sử đơn hàng.</td></tr>';
+        historyTableBody.innerHTML = '<tr><td colspan="6" style="text-align: center;">Không tìm thấy đơn hàng nào.</td></tr>';
         return;
     }
 

@@ -12,6 +12,10 @@ const runPage = () => {
     const supplierIdInput = document.getElementById('supplier-id');
     const nameError = document.getElementById('name-error');
     const supplierTableBody = document.getElementById('supplier-table-body');
+    const searchInput = document.getElementById('search-input');
+    const sortBtn = document.getElementById('sort-btn');
+
+    let currentSort = 'asc'; // 'asc' or 'desc'
 
     const openModal = (title, supplier = null) => {
         modalTitle.textContent = title;
@@ -30,11 +34,31 @@ const runPage = () => {
         supplierModal.style.display = 'none';
     };
 
-    const renderSuppliers = () => {
-        const { suppliers } = getData();
+    const renderSuppliers = (searchTerm = '') => {
+        let { suppliers } = getData();
         supplierTableBody.innerHTML = '';
+        
+        // 1. Sort data
+        suppliers.sort((a, b) => {
+            const nameA = a.name.toLowerCase();
+            const nameB = b.name.toLowerCase();
+            if (currentSort === 'asc') {
+                return nameA.localeCompare(nameB);
+            } else {
+                return nameB.localeCompare(nameA);
+            }
+        });
+
+        // 2. Filter data
+        const lowerCaseSearchTerm = searchTerm.toLowerCase();
+        if (lowerCaseSearchTerm) {
+            suppliers = suppliers.filter(supplier => 
+                supplier.name.toLowerCase().includes(lowerCaseSearchTerm)
+            );
+        }
+        
         if (suppliers.length === 0) {
-            supplierTableBody.innerHTML = '<tr><td colspan="3" style="text-align: center;">Chưa có nhà cung cấp nào.</td></tr>';
+            supplierTableBody.innerHTML = '<tr><td colspan="3" style="text-align: center;">Không tìm thấy nhà cung cấp nào.</td></tr>';
             return;
         }
         suppliers.forEach((supplier, index) => {
@@ -132,6 +156,14 @@ const runPage = () => {
     });
     supplierForm.addEventListener('submit', handleFormSubmit);
     supplierTableBody.addEventListener('click', handleTableClick);
+    searchInput.addEventListener('input', (e) => {
+        renderSuppliers(e.target.value);
+    });
+    sortBtn.addEventListener('click', () => {
+        currentSort = currentSort === 'asc' ? 'desc' : 'asc';
+        sortBtn.textContent = currentSort === 'asc' ? 'Sắp xếp A-Z' : 'Sắp xếp Z-A';
+        renderSuppliers(searchInput.value);
+    });
 
     // Initial render
     renderSuppliers();

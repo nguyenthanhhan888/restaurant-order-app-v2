@@ -1,11 +1,13 @@
 /* General Reset & Mobile First Base */
 :root {
-    --primary-color: #E63946; /* Japanese Red/Orange */
-    --secondary-color: #457B9D; /* Dark Blue */
-    --background-color: #F1FAEE; /* Off-white/Lightest Blue */
-    --text-color: #1D3557; /* Darkest Blue */
-    --header-bg: #ffffff;
-    --border-color: #dee2e6;
+    --primary-color: #c0392b; /* Màu đỏ đậm, mạnh mẽ */
+    --secondary-color: #457b9d; /* Màu xanh xám, điềm tĩnh */
+    --background-color: #ebf0f0; /* Màu nền trắng ngà, ấm áp */
+    --text-color: #34495e; /* Màu chữ xám đậm, dễ đọc */
+    --header-bg: #2c3e50; /* Màu nền header xanh đen */
+    --header-text: #ecf0f1; /* Màu chữ header trắng sáng */
+    --border-color: #e8e4dd; /* Màu viền nhạt */
+    --card-bg: #ffffff; /* Màu nền cho các thẻ card */
     --container-padding: 1rem;
     --base-font-size: 17px; /* Base font size for mobile */
     --input-height: 48px; /* Minimum tappable height */
@@ -29,8 +31,8 @@ body {
 
 /* Header & Navigation */
 .app-header {
-    background-color: var(--secondary-color);
-    color: white;
+    background-color: var(--header-bg);
+    color: var(--header-text);
     padding: 0 var(--container-padding);
     position: sticky;
     top: 0;
@@ -48,8 +50,7 @@ body {
 }
 .hamburger-menu {
     background: none;
-    border: none;
-    color: white;
+    border: none;    color: var(--header-text);
     font-size: 2rem;
     cursor: pointer;
     padding: 0.5rem;
@@ -96,9 +97,9 @@ body {
     border-bottom: 1px solid var(--background-color);
 }
 .app-nav .nav-link.active {
-    background-color: var(--background-color);
+    background-color: var(--primary-color);
     font-weight: bold;
-    color: var(--primary-color);
+    color: white;
 }
 /* Main Content */
 main {
@@ -148,6 +149,11 @@ main {
     background-color: var(--primary-color);
     border-color: var(--primary-color);
 }
+.btn-primary:hover {
+    background-color: #a93226; /* Đỏ đậm hơn khi hover */
+    border-color: #a93226;
+}
+
 .btn:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 12px rgba(0,0,0,0.1);
@@ -158,12 +164,14 @@ main {
 }
 
 .btn-secondary {
-    color: var(--text-color);
-    background-color: #fff;
-    border-color: var(--border-color);
+    color: #fff; /* Đổi màu chữ thành trắng để tương phản tốt hơn */
+    background-color: var(--secondary-color);
+    border-color: var(--secondary-color);
 }
 .btn-secondary:hover {
-    background-color: #f8f9fa;
+    color: #fff;
+    background-color: #3a6888; /* Màu xanh xám đậm hơn khi hover */
+    border-color: #3a6888;
 }
 
 .btn-danger {
@@ -195,7 +203,7 @@ main {
     padding: 1rem 0.75rem;
     text-align: left;
     vertical-align: middle;
-    border-bottom: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);;
 }
 .table thead th {
     background-color: #fff;
@@ -298,12 +306,12 @@ main {
 }
 
 .order-group summary {
-    padding: 1rem;
     font-weight: bold;
     cursor: pointer;
     font-size: 1.1rem;
+    padding: 1rem;
+    list-style: none; /* Hide default arrow */
 }
-
 .order-group .group-items {
     padding: 1rem;
     display: flex;
@@ -312,10 +320,9 @@ main {
 }
 
 .order-item {
-    display: grid;
-    grid-template-columns: min-content 1fr max-content max-content;
-    gap: 0.75rem;
+    display: flex;
     align-items: center;
+    gap: 0.5rem;
     padding: 0.5rem 0;
 }
 
@@ -326,10 +333,21 @@ main {
 }
 
 .order-item .quantity-input {
-    width: 80px;
+    width: 60px; /* Cố định chiều rộng ô nhập số lượng */
+    flex-shrink: 0; /* Không cho phép co lại */
     text-align: center;
-    height: 44px;
-    font-size: 1.1rem;
+}
+
+.order-item label {
+    flex-grow: 1; /* Cho phép tên sản phẩm co giãn, đẩy các phần tử khác ra */
+    margin: 0;
+}
+
+.order-item span {
+    width: 80px; /* Cố định chiều rộng cho đơn vị */
+    flex-shrink: 0;
+    text-align: left;
+    color: #777;
 }
 
 /* Summary/Preview Page Styles */
@@ -416,7 +434,7 @@ main {
 
 /* Content Card Layout for pages like Suppliers */
 .content-card {
-    background-color: #fff;
+    background-color: var(--card-bg);
     padding: 1.5rem;
     border-radius: var(--card-radius);
     box-shadow: var(--card-shadow);
@@ -466,4 +484,44 @@ main {
     margin-bottom: 0.5rem;
     padding-bottom: 0.5rem;
     border-bottom: 1px solid #eee;
+}
+
+/* === Style cho nút Sắp xếp === */
+.table-controls {
+    display: flex;
+    justify-content: flex-end; /* Đẩy nút về phía bên phải */
+    margin-bottom: 1rem;
+}
+
+.table-controls .btn {
+    width: auto; /* Bỏ chiều rộng 100% mặc định */
+    padding: 0.375rem 0.75rem; /* Thêm padding để nút "mềm" hơn */
+}
+
+/* === Style cho việc In ấn === */
+@media print {
+  /* Ẩn các thành phần không cần thiết */
+  .app-header, .sidebar, .sidebar-overlay, .preview-actions, .modal, .table-controls, .form-group, #final-done-btn {
+    display: none !important;
+  }
+
+  /* Đảm bảo phiếu đặt hàng là thứ duy nhất hiển thị */
+  body, main, .container {
+    background-color: #ffffff !important;
+    color: #000000 !important;
+    padding: 0 !important;
+    margin: 0 !important;
+  }
+
+  #final-order-slip-container, .order-slip-view {
+    display: block !important;
+    box-shadow: none !important;
+    border: none !important;
+    color: #000000 !important;
+    width: 100%;
+  }
+  
+  .order-slip-view *, .preview-item * {
+    color: #000000 !important;
+  }
 }

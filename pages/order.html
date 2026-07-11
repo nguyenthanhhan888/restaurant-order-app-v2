@@ -38,7 +38,14 @@
             </div>
 
             <form id="order-form" class="hidden">
-                <label>2. Chọn sản phẩm và nhập số lượng</label>
+                <label>2. Tìm và chọn sản phẩm</label>
+                <div class="form-group" style="margin-top: 1rem;">
+                    <input type="text" id="search-input" class="form-control" placeholder="Nhập tên sản phẩm để lọc...">
+                </div>
+                <div class="table-controls">
+                    <button type="button" id="sort-btn" class="btn btn-secondary btn-sm">Sắp xếp A-Z</button>
+                </div>
+
                 <div id="order-items-container" class="order-item-list">
                     <!-- Items will be rendered here by JS -->
                 </div>

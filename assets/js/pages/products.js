@@ -8,6 +8,10 @@ const runPage = () => {
     const productManagementSection = document.getElementById('product-management-section');
     const addProductBtn = document.getElementById('add-product-btn');
     const productTableBody = document.getElementById('product-table-body');
+    const searchInput = document.getElementById('search-input');
+    const sortBtn = document.getElementById('sort-btn');
+
+    let currentSort = 'asc'; // 'asc' or 'desc'
 
     // Modal elements
     const productModal = document.getElementById('product-modal');
@@ -32,13 +36,38 @@ const runPage = () => {
         });
     };
 
-    const renderProducts = (supplierId) => {
-        const { items, groups } = getData();
-        const supplierItems = items.filter(item => item.supplier_id === supplierId);
+    const renderProducts = (supplierId, searchTerm = '') => {
+        let { items, groups } = getData();
+        let supplierItems = items.filter(item => item.supplier_id === supplierId);
         productTableBody.innerHTML = '';
+        
+        // 1. Sort data
+        const groupMap = new Map(groups.map(g => [g.id, g.name]));
+        supplierItems.sort((a, b) => {
+            const groupNameA = groupMap.get(a.group_id) || 'zzzz'; // Ungrouped items last
+            const groupNameB = groupMap.get(b.group_id) || 'zzzz';
 
+            const groupCompare = groupNameA.localeCompare(groupNameB);
+            if (groupCompare !== 0) {
+                return groupCompare; // Sort by group name first
+            }
+
+            // If in the same group, sort by item name
+            const nameA = a.name.toLowerCase();
+            const nameB = b.name.toLowerCase();
+            return currentSort === 'asc' ? nameA.localeCompare(nameB) : nameB.localeCompare(nameA);
+        });
+
+        // 2. Filter data
+        const lowerCaseSearchTerm = searchTerm.toLowerCase();
+        if (lowerCaseSearchTerm) {
+            supplierItems = supplierItems.filter(item => 
+                item.name.toLowerCase().includes(lowerCaseSearchTerm)
+            );
+        }
+        
         if (supplierItems.length === 0) {
-            productTableBody.innerHTML = '<tr><td colspan="5" style="text-align: center;">Chưa có mặt hàng nào.</td></tr>';
+            productTableBody.innerHTML = '<tr><td colspan="5" style="text-align: center;">Không tìm thấy mặt hàng nào.</td></tr>';
             return;
         }
 
@@ -192,10 +221,21 @@ const runPage = () => {
         const supplierId = supplierSelect.value;
         if (supplierId) {
             productManagementSection.classList.remove('hidden');
+            searchInput.value = ''; // Clear search on supplier change
             renderProducts(supplierId);
         } else {
             productManagementSection.classList.add('hidden');
         }
+    });
+
+    searchInput.addEventListener('input', (e) => {
+        renderProducts(supplierSelect.value, e.target.value);
+    });
+
+    sortBtn.addEventListener('click', () => {
+        currentSort = currentSort === 'asc' ? 'desc' : 'asc';
+        sortBtn.textContent = currentSort === 'asc' ? 'Sắp xếp A-Z' : 'Sắp xếp Z-A';
+        renderProducts(supplierSelect.value, searchInput.value);
     });
 
     addProductBtn.addEventListener('click', () => openModal('Thêm Mặt Hàng'));
