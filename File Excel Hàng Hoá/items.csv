@@ -1,0 +1,181 @@
+id,name,unit,supplier_id,group_id,created_at
+itm_minze_metro,Minze,Hộp,sup_metro,grp_rau,
+itm_hanhla_metro,Hành lá,Túi,sup_metro,grp_rau,
+itm_salatdo_metro,Salat đỏ,Túi,sup_metro,grp_rau,
+itm_chanh_metro,Chanh,Kit,sup_metro,grp_rau,
+itm_cam_metro,Cam,Kit,sup_metro,grp_rau,
+itm_tao_metro,Táo,Kit,sup_metro,grp_rau,
+itm_giaysusi_metro,Giấy Susi,Túi,sup_metro,grp_kho,
+itm_kemchanh_metro,Kem chanh,Túi,sup_metro,grp_kho,
+itm_kemvanilla_metro,Kem Vanilla,Hộp,sup_metro,grp_kho,
+itm_frischkase_metro,Frisch Käse,Hộp,sup_metro,grp_kho,
+itm_banhtaquito_metro,Bánh Taquito,Túi,sup_metro,grp_kho,
+itm_cahunkhoi_metro,Cá hun khói,Miếng,sup_metro,grp_kho,
+itm_maggi_metro,Maggi,Chai,sup_metro,grp_kho,
+itm_kemdua_metro,Kem Dừa,Túi,sup_metro,grp_kho,
+itm_banhschoko_metro,Bánh Schoko,Hộp,sup_metro,grp_kho,
+itm_schokososse_metro,Schoko Sosse,Chai,sup_metro,grp_kho,
+itm_nuaruachen_metro,Nước rửa chén,Can,sup_metro,grp_vs,
+itm_nualaukinh_metro,Nước lau kính,Can,sup_metro,grp_vs,
+itm_nuaruatay_metro,Nước rửa tay của khách,Can,sup_metro,grp_vs,
+itm_fettloser_metro,Fettlöser,Can,sup_metro,grp_vs,
+itm_boudon_metro,Bò Udon,Túi,sup_metro,grp_thit,
+itm_boxao_metro,Bò xào,Túi,sup_metro,grp_thit,
+itm_ucga_metro,Ức gà,Túi,sup_metro,grp_thit,
+itm_duiga_metro,Đùi gà,Hộp,sup_metro,grp_thit,
+itm_trungga_metro,Trứng gà,Kit,sup_metro,grp_thit,
+itm_trung,Trứng,Kit,sup_edeka,,
+itm_brokkoli,Brokkoli,Kit,sup_edeka,,
+itm_pakchoi,Pak Choi,Kit,sup_edeka,,
+itm_kleinermais,Kleiner Mais,Kit,sup_edeka,,
+itm_zuckererbsen,Zuckererbsen,Kit,sup_edeka,,
+itm_mixsalat,Mix Salat,Kit,sup_edeka,,
+itm_normalerspinat,Normaler Spinat,Kit,sup_edeka,,
+itm_tomaten,Tomaten,Kit,sup_edeka,,
+itm_paprika,Paprika,Kit,sup_edeka,,
+itm_karotten,Karotten,Kit,sup_edeka,,
+itm_avocado,Avocado,Kit,sup_edeka,,
+itm_mango,Mango,Kit,sup_edeka,,
+itm_rettich,Rettich,Kit,sup_edeka,,
+itm_gurke,Gurke,Kit,sup_edeka,,
+itm_dill,Dill,Kit,sup_edeka,,
+itm_shisomix,Shiso Mix,Kit,sup_edeka,,
+itm_kumquat,Kumquat,Kit,sup_edeka,,
+itm_kurbis,Kürbis,Kit,sup_edeka,,
+itm_susskartofel,Süsskartofel,Kit,sup_edeka,,
+itm_romytomaten,Romy Tomaten,Kit,sup_edeka,,
+itm_rucola,Rucola,Kit,sup_edeka,,
+itm_knoblauch,Knoblauch,Bì,sup_edeka,,
+itm_yuzusaft,Yuzu Saft,Gói,sup_japan,,
+itm_misoweiss,Miso Weiss (Tương miso trắng),Thùng,sup_japan,,
+itm_sushiyotakuan,Sushiyo Takuan (Củ cải vàng muối),Thùng,sup_japan,,
+itm_suehiro,Suehiro,Thùng,sup_japan,,
+itm_miola,Miola,Lọ,sup_japan,,
+itm_gaosushi,Gạo Sushi,Bao,sup_japan,,
+itm_dashinomoto,Dashinomoto (Bột cá cốt súp),Hộp,sup_japan,,
+itm_tom2125,Tôm 21/25,Thùng,sup_japan,,
+itm_tom1315,Tôm 13/15,Thùng,sup_japan,,
+itm_mayonnaisejp,Mayonnaise (Sốt Mayonnaise Nhật),Thùng,sup_japan,,
+itm_biaasahi,Bia Asahi,Thùng,sup_japan,,
+itm_rosmarin_metro,Rosmarin,Hộp,sup_metro,grp_rau,
+itm_catim_metro,Hành Tím,Kg,sup_metro,grp_rau,
+itm_otsung_metro,Ớt sừng,Hộp,sup_metro,grp_rau,
+itm_dauan_metro,Dầu ăn,Can,sup_metro,grp_kho,
+itm_duongvang_metro,Đường vàng,Kg,sup_metro,grp_kho,
+itm_duongtrang_metro,Đường trắng,Kg,sup_metro,grp_kho,
+itm_speisequark_metro,Speisequark,Hộp,sup_metro,grp_kho,
+itm_schlagsahne_metro,Schlagsahne,Kit,sup_metro,grp_kho,
+itm_mascarpone_metro,Mascarpone,Hộp,sup_metro,grp_kho,
+itm_ngohop_metro,Ngô hộp,Kit,sup_metro,grp_kho,
+itm_muoi_metro,Muối,Thùng,sup_metro,grp_kho,
+itm_thitbonam_metro,Bò Nộm,Túi,sup_metro,grp_thit,
+itm_sake,Rượu Sake Bán,Thùng,sup_japan,,
+itm_tobikoorange,Tobiko,Thùng,sup_japan,,
+itm_surimimaki,Surimi,Thùng,sup_japan,,
+itm_unagikabayaki,Unagi Kabayaki,Thùng,sup_japan,,
+itm_kikkoman,Kikkoman,Thùng,sup_japan,,
+itm_sakechien,Rượu Sake Nấu,Thùng,sup_japan,,
+itm_honteri,Honteri Mirin,Thùng,sup_japan,,
+itm_katsuobushi,Katsuobushi (Cá bào Nhật Bản),Gói,sup_japan,,
+itm_gyozachicken,Gyoza Chicken,Thùng,sup_japan,,
+itm_silkentofu,Tofu Firm,Thùng,sup_japan,,
+itm_wakame,Wakame (Rong biển khô nấu súp),Gói,sup_japan,,
+itm_gomawakame,Goma Wakame (Rong biển trộn mè),Thùng,sup_japan,,
+itm_botchienjp,Bột chiên tempura,Bao,sup_japan,,
+itm_otbot_metro,Ớt bột,Lọ,sup_metro,grp_kho,
+itm_hatieu_metro,Hạt tiêu,Lọ,sup_metro,grp_kho,
+itm_toicu_metro,Tỏi củ,Kg,sup_metro,grp_rau,
+itm_bachtuoc_metro,Bạch Tuộc,Kg,sup_metro,grp_kho,
+itm_thymian_metro,Thymian,Hộp,sup_metro,grp_rau,
+itm_babyspinat,Babyspinat,Kg,sup_edeka,,
+itm_spargel,Spargel,X,sup_edeka,,
+itm_schnittlauch,Schnittlauch,X,sup_edeka,,
+itm_krauterseitling,Kräuterseitling,X,sup_edeka,,
+itm_udon,Udon,Thùng,sup_japan,,
+itm_crabjp,Crab,Hộp,sup_japan,,
+itm_gao_asia,Gạo,Bao,sup_asia,,
+itm_sa_asia,Sả,Gói,sup_asia,,
+itm_gung_asia,Gừng,Kg,sup_asia,,
+itm_dauhao_asia,Dầu hào,Chai,sup_asia,,
+itm_hatnem_asia,Hạt nêm,Gói,sup_asia,,
+itm_nuocmam_asia,Nước mắm,Can,sup_asia,,
+itm_aloeking_asia,Aloe King (Nước nha đam),Thùng,sup_asia,,
+itm_chagioga_asia,Chả giò gà,Thùng,sup_asia,,
+itm_caphe_asia,Cà phê,Thùng,sup_asia,,
+itm_phongtom_asia,Phồng tôm,Gói,sup_asia,,
+itm_266la6ob6,Tom Yum,Lọ,sup_asia,,
+itm_yn0f48bel,Cá Lachs,Tông,sup_jenlskt6v,,2026-07-11T00:56:22.212999+00:00
+itm_wk9vrimfw,Cá Tuna,Miếng,sup_jenlskt6v,,2026-07-11T07:21:24.676215+00:00
+itm_y8g09o54m,Cá Tai,Con,sup_jenlskt6v,,2026-07-11T07:21:33.86479+00:00
+itm_49345tnf1,Cá Bơ,Miếng,sup_jenlskt6v,,2026-07-11T07:21:47.15571+00:00
+itm_2e8lka9fn,Giấy Lau Tay,Pl,sup_oipupwvxc,,2026-07-11T07:22:30.144541+00:00
+itm_yp56xrzlg,Giấy WC,Pl,sup_oipupwvxc,,2026-07-11T07:22:55.793794+00:00
+itm_m34yvufbp,Curry Paste,Lọ,sup_asia,,
+itm_xrj7yt6fn,07 - sushi box,Thùng,sup_3a0ndnqf1,,2026-07-11T12:24:01.656418+00:00
+itm_p9jrsqti9,09 - sushi box,Thùng,sup_3a0ndnqf1,,2026-07-11T12:24:14.580275+00:00
+itm_riengda_asia,Riềng đá,Gói,sup_asia,,
+itm_tomboc_asia,Tôm bọc khoai tây,Thùng,sup_asia,,
+itm_tokvp0c1t,11T - sushi box,Thùng,sup_3a0ndnqf1,,2026-07-11T12:36:49.133157+00:00
+itm_o6inaxzvj,Soup Cup Paper 16oz,Thùng,sup_3a0ndnqf1,,2026-07-11T12:37:13.142295+00:00
+itm_erdnusscreme_asia,Erdnusscreme,Thùng,sup_asia,,
+itm_daume_asia,Dầu mè,Chai,sup_asia,,
+itm_hacaotom_asia,DimSum,Thùng,sup_asia,,
+itm_chilipaste_asia,Chili Paste,Lọ,sup_asia,,
+itm_mukimame_asia,Edemame,Thùng,sup_asia,,
+itm_lychee_asia,Lychee,Thùng,sup_asia,,
+itm_dumplingveg_asia,Dumpling vegetable,Thùng,sup_asia,,
+itm_tuongot_asia,Tương ớt con ngỗng (Sriracha),Thùng,sup_asia,,
+itm_tofu_asia,Tofu,Hộp,sup_asia,,
+itm_mango_asia,Mango,Hộp,sup_asia,,
+itm_michinh_asia,Mì chính (Bột ngọt),Kg,sup_asia,,
+itm_xj2vp81kg,Thịt Lợn,Kg,sup_metro,grp_nv,2026-07-11T07:45:19.057284+00:00
+itm_bun_asia,Bún,Thùng,sup_asia,,
+itm_vung_asia,Vừng (Mè),Gói,sup_asia,,
+itm_chethai_asia,Chè Thái Nguyên,Gói,sup_asia,,
+itm_hoi_asia,Hoisin souce,Hộp,sup_asia,,
+itm_botchienxu_asia,Bột chiên xù,Bao 20kg,sup_asia,,
+itm_xidaudac_asia,Xì dầu đặc,Can,sup_asia,,
+itm_xidauloang_asia,Xì dầu loãng,Can,sup_asia,,
+itm_ga_asia,Gà Nv,Tông,sup_asia,,
+itm_sambal_asia,Sambal Oelek (chili),Thùng,sup_asia,,
+itm_edamame,Edamame,Thùng,sup_japan,,
+itm_tijfm8qoe,Shirodashi,Chai,sup_japan,,2026-07-11T12:08:36.991446+00:00
+itm_bmke8p4iy,Sweet Potato Freis,Thùng,sup_japan,,2026-07-11T12:09:03.998888+00:00
+itm_pnht2fuix,Kurkuma (Bột nghệ),Gói,sup_metro,grp_kho,2026-07-11T12:10:20.996387+00:00
+itm_r614gzm2n,Markenbutter (bơ xào),Miếng,sup_metro,grp_kho,2026-07-11T12:11:07.884152+00:00
+itm_o9taaykni,H-Vollmilch,Kit,sup_metro,grp_kho,2026-07-11T12:12:36.060959+00:00
+itm_brf58eqkd,Ananas (Dứa),Quả,sup_metro,grp_rau,2026-07-11T12:12:55.872871+00:00
+itm_j72ot5czj,Danklorix,Can,sup_metro,grp_vs,2026-07-11T12:13:22.591018+00:00
+itm_qqbmfqb08,Sponge cloth (kê thớt),Gói,sup_metro,grp_vs,2026-07-11T12:13:53.047115+00:00
+itm_ifybf04v1,Thịt sườn,Kg,sup_metro,grp_nv,2026-07-11T12:16:36.20995+00:00
+itm_usb4swc1w,Đùi lợn,Kg,sup_metro,grp_nv,2026-07-11T12:16:44.825225+00:00
+itm_6fkqiy6yn,Đầu lợn,Kg,sup_metro,grp_nv,2026-07-11T12:16:54.51086+00:00
+itm_914uc57fe,Thịt băm,Hộp,sup_metro,grp_nv,2026-07-11T12:17:20.154221+00:00
+itm_aseh54bb4,Tim lợn,Hộp,sup_metro,grp_nv,2026-07-11T12:17:27.330304+00:00
+itm_2cxzsufgd,Chân giò,Kg,sup_metro,grp_nv,2026-07-11T12:17:57.266997+00:00
+itm_dn1dg756j,Paper Bowl 1300ml,Thùng,sup_3a0ndnqf1,,2026-07-11T12:37:31.487073+00:00
+itm_zvnw7bql5,Microboxx,Thùng,sup_3a0ndnqf1,,2026-07-11T12:38:10.809056+00:00
+itm_64wup8e1l,Hộp 2 ngăn (31A),Thùng,sup_3a0ndnqf1,,2026-07-11T12:38:33.994491+00:00
+itm_wnu39mfs1,03 - sushi box,Thùng,sup_3a0ndnqf1,,2026-07-11T12:48:13.706259+00:00
+itm_ycnzy9xxv,Müllbeutel 120L,Goi,sup_metro,grp_kho,2026-07-12T11:28:41.700325+00:00
+itm_62cwpcc1f,Sauerrahm,Hộp,sup_metro,grp_kho,2026-07-12T11:14:43.188362+00:00
+itm_w2ghtlvaj,Vịt,Goi,sup_metro,grp_thit,2026-07-12T11:33:47.006311+00:00
+itm_qa3pgn6zz,Trứng cá to,Gói,sup_metro,grp_thit,2026-07-12T11:44:56.877445+00:00
+itm_qggw15ah2,Garbage Bage( túi đen )55x60cm,Gói,sup_metro,grp_kho,2026-07-12T11:47:19.099298+00:00
+itm_knvwvepqw,Folie(bọc thực phẩm),Gói,sup_metro,grp_kho,2026-07-12T11:49:04.740775+00:00
+itm_1y9ep23yl,Kurkuma( bột nghệ),Gói,sup_metro,grp_kho,2026-07-12T11:50:49.757328+00:00
+itm_e7lzmywy5,Knoblauch(bột gừng),Gói,sup_metro,grp_kho,2026-07-12T11:51:53.740171+00:00
+itm_m0jelrdvr,Mắm mực,Can,sup_asia,,2026-07-12T11:55:54.082157+00:00
+itm_1rwo7fwj3,Sweetchillisauce FoRchicken( sốt chua ngọt),Can,sup_asia,,2026-07-12T11:57:56.249204+00:00
+itm_tgsx9w2yx,Tafelessig( dấm),Can,sup_metro,grp_kho,2026-07-12T12:01:37.076292+00:00
+itm_u4vx5tr1d,MalZena(bột ngô),Gói,sup_metro,grp_kho,2026-07-12T12:03:24.266122+00:00
+itm_3h1ifw7sp,Kewple deep Roasted sesame(sốt mè vang),Lọ,sup_japan,,2026-07-12T12:05:25.025985+00:00
+itm_whaymyejx,Cltrus seasoning,Lọ,sup_japan,,2026-07-12T12:07:57.683416+00:00
+itm_xplae43rz,Shirodashi(nước nắm),Lọ,sup_japan,,2026-07-12T12:08:54.899706+00:00
+itm_tmzc3y6ef,Nấm hương,Kg,sup_japan,,2026-07-12T12:09:55.917564+00:00
+itm_lu1sbv9lt,Puder zucher,Kit,sup_metro,grp_kho,2026-07-12T12:11:41.662386+00:00
+itm_tvhhwg3y3,Honig Stick,Hộp,sup_metro,grp_kho,2026-07-12T12:14:33.184609+00:00
+itm_cx46fnxez,Konawasabi,Tông,sup_japan,,2026-07-12T12:24:02.058151+00:00
+itm_npbjmcbbs,Sushi Gari (white),Thùng,sup_japan,,2026-07-12T12:25:37.619936+00:00
+itm_ijejd8o9w,Sussi nori gold,Thùng,sup_japan,,2026-07-12T12:26:20.568193+00:00
+itm_pt6jc09zi,Blütenhonig,Kit,sup_metro,grp_kho,2026-07-12T12:27:47.422344+00:00

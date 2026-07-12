@@ -1,0 +1,6 @@
+id,name,supplier_id,created_at
+grp_rau,Hàng Rau,sup_metro,2026-07-11T00:19:42.122258+00:00
+grp_kho,Hàng Khô,sup_metro,2026-07-11T00:19:42.122258+00:00
+grp_vs,Vệ Sinh,sup_metro,2026-07-11T00:19:42.122258+00:00
+grp_thit,Thịt,sup_metro,2026-07-11T00:19:42.122258+00:00
+grp_nv,Thức Ăn NV,sup_metro,2026-07-11T07:43:48.969578+00:00

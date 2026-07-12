@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cài đặt & Sao lưu</title>
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+    <div id="sidebar-placeholder"></div>
+    <header id="header-placeholder" class="app-header"></header>
+
+    <main>
+        <div class="container">
+            <div class="content-wrapper">
+                <div class="content-card">
+                    <h1>Cài đặt & Sao lưu</h1>
+
+                    <div style="margin-top: 2rem;">
+                        <h2>Sao lưu Dữ liệu</h2>
+                        <p style="margin-top: 0.5rem; color: #555;">
+                            Hành động này sẽ tải về 5 file CSV, tương ứng với 5 bảng dữ liệu của bạn (suppliers, groups, items, orders, order_items).
+                            Bạn có thể sử dụng các file này để nhập lại dữ liệu vào Supabase nếu cần.
+                        </p>
+                        <button id="backup-btn" class="btn btn-primary" style="margin-top: 1rem;">Tải về bản sao lưu</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <script src="../assets/js/main.js" type="module"></script>
+    <script src="../assets/js/pages/settings.js" type="module"></script>
+</body>
+</html>

@@ -2,13 +2,66 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <title>Đang chuyển hướng...</title>
-    <meta http-equiv="refresh" content="0;url=./pages/order.html">
-    <script>
-        window.location.replace("./pages/order.html");
-    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
 </head>
 <body>
-    <p>Nếu bạn không được chuyển hướng tự động, <a href="./pages/order.html">hãy nhấn vào đây</a>.</p>
+    <div id="sidebar-placeholder"></div>
+    <header id="header-placeholder" class="app-header"></header>
+
+    <main>
+        <div class="container">
+            <h1>Dashboard</h1>
+            <p class="subtitle">Tổng quan hoạt động trong tháng này</p>
+
+            <!-- KPI Cards -->
+            <div class="kpi-grid">
+                <div class="kpi-card">
+                    <div class="kpi-value" id="total-orders-kpi">0</div>
+                    <div class="kpi-label">Tổng đơn hàng</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-value" id="total-spending-kpi">0</div>
+                    <div class="kpi-label">Tổng chi tiêu</div>
+                </div>
+                <div class="kpi-card">
+                    <div class="kpi-value" id="top-supplier-kpi">--</div>
+                    <div class="kpi-label">NCC đặt nhiều nhất</div>
+                </div>
+            </div>
+
+            <!-- Chart Card -->
+            <div class="content-card" style="margin-top: 2rem;">
+                <h2>Chi tiêu theo Nhà Cung Cấp</h2>
+                <div class="chart-container">
+                    <canvas id="supplier-spending-chart"></canvas>
+                </div>
+            </div>
+
+            <!-- Top Items & Recent Orders -->
+            <div class="dashboard-grid">
+                <div class="content-card">
+                    <h2>Mặt hàng đặt nhiều nhất</h2>
+                    <ul id="top-items-list" class="dashboard-list">
+                        <!-- Top items will be rendered here -->
+                    </ul>
+                </div>
+                <div class="content-card">
+                    <h2>Đơn hàng gần đây</h2>
+                    <ul id="recent-orders-list" class="dashboard-list">
+                        <!-- Recent orders will be rendered here -->
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <!-- Chart.js Library -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+    <script src="./assets/js/main.js" type="module"></script>
+    <script src="./assets/js/pages/dashboard.js" type="module"></script>
 </body>
 </html>

@@ -1,7 +1,41 @@
 import { init as initStorage, getData } from './services/storage.js';
 import { initLoader, showLoader, hideLoader } from './services/loading.js';
 
+const loadSharedComponents = async () => {
+    const headerPlaceholder = document.getElementById('header-placeholder');
+    const sidebarPlaceholder = document.getElementById('sidebar-placeholder');
+
+    // Use absolute paths from the server root.
+    // This works with local servers like VS Code's Live Server and GitHub Pages.
+    const headerPath = '/pages/_header.html';
+    const sidebarPath = '/pages/_sidebar.html';
+
+    try {
+        const [headerRes, sidebarRes] = await Promise.all([
+            fetch(headerPath),
+            fetch(sidebarPath)
+        ]);
+
+        if (!headerRes.ok || !sidebarRes.ok) {
+            throw new Error('Could not load shared components');
+        }
+
+        const headerHTML = await headerRes.text();
+        const sidebarHTML = await sidebarRes.text();
+
+        if (headerPlaceholder) headerPlaceholder.innerHTML = headerHTML;
+        if (sidebarPlaceholder) sidebarPlaceholder.innerHTML = sidebarHTML;
+
+    } catch (error) {
+        console.error("Error loading shared components:", error);
+        // Fallback or error message can be shown here
+    }
+};
+
 const initializeApp = async () => {
+    // Load shared header and sidebar first
+    await loadSharedComponents();
+
     // Create loader HTML and CSS
     initLoader();
 
@@ -16,6 +50,7 @@ const initializeApp = async () => {
     } finally {
         hideLoader();
     }
+
     // --- Navigation Logic ---
     const hamburgerMenu = document.getElementById('hamburger-menu');
     const sidebar = document.getElementById('sidebar');
@@ -35,13 +70,16 @@ const initializeApp = async () => {
 
     // --- Active Link Highlighter ---
     const currentPath = window.location.pathname.split('/').pop();
-    const targetPath = currentPath === '' || currentPath === 'index.html' ? 'order.html' : currentPath;
 
     const navLinks = document.querySelectorAll('.nav-link');
     navLinks.forEach(link => {
         const linkPath = link.getAttribute('href').split('/').pop();
-        // Highlight "Lịch Sử" for both summary and history views
-        if (linkPath === targetPath || (targetPath === 'summary.html' && linkPath === 'summary.html')) {
+
+        // Special handling for index.html as the dashboard
+        const isDashboardLink = linkPath === 'index.html';
+        const isCurrentPageDashboard = currentPath === '' || currentPath === 'index.html';
+
+        if (linkPath === currentPath || (isDashboardLink && isCurrentPageDashboard)) {
             link.classList.add('active');
         }
     });

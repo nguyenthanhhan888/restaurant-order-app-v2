@@ -1,0 +1,106 @@
+id,created_at,order_id,item_id,quantity,name,unit
+1,2026-07-11T22:03:30.008872+00:00,ord_9u8u9omje,itm_yn0f48bel,1,Cá Lachs,Tông
+2,2026-07-11T22:06:49.740489+00:00,ord_v46aynyva,itm_yn0f48bel,1,Cá Lachs,Tông
+3,2026-07-11T22:07:08.725037+00:00,ord_zega3wxeg,itm_gao_asia,1,Gạo,Bao
+4,2026-07-11T22:07:22.390966+00:00,ord_bjgd3migl,itm_yuzusaft,1,Yuzu Saft,Gói
+5,2026-07-11T22:07:22.390966+00:00,ord_bjgd3migl,itm_misoweiss,2,Miso Weiss (Tương miso trắng),Thùng
+6,2026-07-11T22:08:14.762508+00:00,ord_zkeolropb,itm_gao_asia,1,Gạo,Bao
+7,2026-07-11T22:08:14.762508+00:00,ord_zkeolropb,itm_sa_asia,2,Sả,Gói
+8,2026-07-11T22:11:19.224217+00:00,ord_svea6q27g,itm_yn0f48bel,1,Cá Lachs,Tông
+9,2026-07-11T22:12:13.381803+00:00,ord_o21brksjm,itm_yn0f48bel,1,Cá Lachs,Tông
+10,2026-07-11T22:12:35.17715+00:00,ord_limaqhdyw,itm_trung,3,Trứng,Kit
+11,2026-07-11T22:12:35.17715+00:00,ord_limaqhdyw,itm_brokkoli,5,Brokkoli,Kit
+12,2026-07-11T23:16:45.021096+00:00,ord_x68kjfx68,itm_brf58eqkd,1,Ananas (Dứa),Quả
+13,2026-07-11T23:16:45.021096+00:00,ord_x68kjfx68,itm_cam_metro,1,Cam,Kit
+14,2026-07-11T23:16:45.021096+00:00,ord_x68kjfx68,itm_chanh_metro,1,Chanh,Kit
+15,2026-07-11T23:16:45.021096+00:00,ord_x68kjfx68,itm_aseh54bb4,1,Tim lợn,Hộp
+16,2026-07-11T23:30:30.73279+00:00,ord_y5kgys5x8,itm_brf58eqkd,3,Ananas (Dứa),Quả
+17,2026-07-12T00:07:09.180913+00:00,ord_zzzqtvquq,itm_babyspinat,1,Babyspinat,Kg
+18,2026-07-12T00:07:09.180913+00:00,ord_zzzqtvquq,itm_mixsalat,1,Mix Salat,Kit
+19,2026-07-12T00:07:09.180913+00:00,ord_zzzqtvquq,itm_rettich,1,Rettich,Kit
+20,2026-07-12T00:07:09.180913+00:00,ord_zzzqtvquq,itm_rucola,1,Rucola,Kit
+21,2026-07-12T00:07:09.180913+00:00,ord_zzzqtvquq,itm_spargel,4,Spargel,X
+22,2026-07-12T00:07:09.180913+00:00,ord_zzzqtvquq,itm_zuckererbsen,1,Zuckererbsen,Kit
+23,2026-07-12T08:50:56.933915+00:00,ord_gwk95c4yz,itm_49345tnf1,1,Cá Bơ,Miếng
+24,2026-07-12T08:50:56.933915+00:00,ord_gwk95c4yz,itm_yn0f48bel,1,Cá Lachs,Tông
+25,2026-07-12T08:50:56.933915+00:00,ord_gwk95c4yz,itm_y8g09o54m,1,Cá Tai,Con
+26,2026-07-12T08:57:35.831316+00:00,ord_ufkbyb5w1,itm_brokkoli,2,Brokkoli,Kit
+27,2026-07-12T08:57:35.831316+00:00,ord_ufkbyb5w1,itm_schnittlauch,1,Schnittlauch,X
+28,2026-07-12T11:36:34.365029+00:00,ord_8mfchhqvf,itm_chanh_metro,3,Chanh,Kit
+29,2026-07-12T11:36:34.365029+00:00,ord_8mfchhqvf,itm_minze_metro,7,Minze,Hộp
+30,2026-07-12T11:36:34.365029+00:00,ord_8mfchhqvf,itm_rosmarin_metro,1,Rosmarin,Hộp
+31,2026-07-12T11:36:34.365029+00:00,ord_8mfchhqvf,itm_salatdo_metro,2,Salat đỏ,Túi
+32,2026-07-12T11:36:34.365029+00:00,ord_8mfchhqvf,itm_thymian_metro,1,Thymian,Hộp
+33,2026-07-12T11:36:34.365029+00:00,ord_8mfchhqvf,itm_dauan_metro,3,Dầu ăn,Can
+34,2026-07-12T11:36:34.365029+00:00,ord_8mfchhqvf,itm_frischkase_metro,1,Frisch Käse,Hộp
+35,2026-07-12T11:36:34.365029+00:00,ord_8mfchhqvf,itm_kemdua_metro,4,Kem Dừa,Túi
+36,2026-07-12T11:36:34.365029+00:00,ord_8mfchhqvf,itm_ycnzy9xxv,2,Müllbeutel 120L,Goi
+37,2026-07-12T11:36:34.365029+00:00,ord_8mfchhqvf,itm_62cwpcc1f,3,Sauerrahm,Hộp
+38,2026-07-12T11:36:34.365029+00:00,ord_8mfchhqvf,itm_nualaukinh_metro,1,Nước lau kính,Can
+39,2026-07-12T11:36:34.365029+00:00,ord_8mfchhqvf,itm_nuaruachen_metro,1,Nước rửa chén,Can
+40,2026-07-12T11:36:34.365029+00:00,ord_8mfchhqvf,itm_thitbonam_metro,1,Bò Nộm,Túi
+41,2026-07-12T11:36:34.365029+00:00,ord_8mfchhqvf,itm_boudon_metro,1,Bò Udon,Túi
+42,2026-07-12T11:36:34.365029+00:00,ord_8mfchhqvf,itm_boxao_metro,2,Bò xào,Túi
+43,2026-07-12T11:36:34.365029+00:00,ord_8mfchhqvf,itm_duiga_metro,7,Đùi gà,Hộp
+44,2026-07-12T11:36:34.365029+00:00,ord_8mfchhqvf,itm_ucga_metro,5,Ức gà,Túi
+45,2026-07-12T11:36:34.365029+00:00,ord_8mfchhqvf,itm_w2ghtlvaj,5,Vịt,Goi
+46,2026-07-12T11:36:34.365029+00:00,ord_8mfchhqvf,itm_914uc57fe,2,Thịt băm,Hộp
+47,2026-07-12T11:36:34.365029+00:00,ord_8mfchhqvf,itm_xj2vp81kg,7,Thịt Lợn,Kg
+48,2026-07-12T11:36:34.365029+00:00,ord_8mfchhqvf,itm_ifybf04v1,2,Thịt sườn,Kg
+49,2026-07-12T12:33:38.772489+00:00,ord_1menqch42,itm_chanh_metro,3,Chanh,Kit
+50,2026-07-12T12:33:38.772489+00:00,ord_1menqch42,itm_minze_metro,7,Minze,Hộp
+51,2026-07-12T12:33:38.772489+00:00,ord_1menqch42,itm_rosmarin_metro,1,Rosmarin,Hộp
+52,2026-07-12T12:33:38.772489+00:00,ord_1menqch42,itm_salatdo_metro,2,Salat đỏ,Túi
+53,2026-07-12T12:33:38.772489+00:00,ord_1menqch42,itm_thymian_metro,1,Thymian,Hộp
+54,2026-07-12T12:33:38.772489+00:00,ord_1menqch42,itm_dauan_metro,3,Dầu ăn,Can
+55,2026-07-12T12:33:38.772489+00:00,ord_1menqch42,itm_frischkase_metro,1,Frisch Käse,Hộp
+56,2026-07-12T12:33:38.772489+00:00,ord_1menqch42,itm_kemdua_metro,4,Kem Dừa,Túi
+57,2026-07-12T12:33:38.772489+00:00,ord_1menqch42,itm_ycnzy9xxv,2,Müllbeutel 120L,Goi
+58,2026-07-12T12:33:38.772489+00:00,ord_1menqch42,itm_62cwpcc1f,3,Sauerrahm,Hộp
+59,2026-07-12T12:33:38.772489+00:00,ord_1menqch42,itm_nualaukinh_metro,1,Nước lau kính,Can
+60,2026-07-12T12:33:38.772489+00:00,ord_1menqch42,itm_nuaruachen_metro,1,Nước rửa chén,Can
+61,2026-07-12T12:33:38.772489+00:00,ord_1menqch42,itm_thitbonam_metro,1,Bò Nộm,Túi
+62,2026-07-12T12:33:38.772489+00:00,ord_1menqch42,itm_boudon_metro,1,Bò Udon,Túi
+63,2026-07-12T12:33:38.772489+00:00,ord_1menqch42,itm_boxao_metro,2,Bò xào,Túi
+64,2026-07-12T12:33:38.772489+00:00,ord_1menqch42,itm_duiga_metro,7,Đùi gà,Hộp
+65,2026-07-12T12:33:38.772489+00:00,ord_1menqch42,itm_qa3pgn6zz,2,Trứng cá to,Gói
+66,2026-07-12T12:33:38.772489+00:00,ord_1menqch42,itm_ucga_metro,5,Ức gà,Túi
+67,2026-07-12T12:33:38.772489+00:00,ord_1menqch42,itm_w2ghtlvaj,5,Vịt,Goi
+68,2026-07-12T12:33:38.772489+00:00,ord_1menqch42,itm_2cxzsufgd,4,Chân giò,Kg
+69,2026-07-12T12:33:38.772489+00:00,ord_1menqch42,itm_914uc57fe,2,Thịt băm,Hộp
+70,2026-07-12T12:33:38.772489+00:00,ord_1menqch42,itm_xj2vp81kg,7,Thịt Lợn,Kg
+71,2026-07-12T12:33:38.772489+00:00,ord_1menqch42,itm_ifybf04v1,2,Thịt sườn,Kg
+72,2026-07-12T17:25:49.924331+00:00,ord_29k4kgfod,itm_biaasahi,1,Bia Asahi,Thùng
+73,2026-07-12T17:25:49.924331+00:00,ord_29k4kgfod,itm_botchienjp,3,Bột chiên tempura,Bao
+74,2026-07-12T17:25:49.924331+00:00,ord_29k4kgfod,itm_whaymyejx,1,Cltrus seasoning,Lọ
+75,2026-07-12T17:25:49.924331+00:00,ord_29k4kgfod,itm_crabjp,2,Crab,Hộp
+76,2026-07-12T17:25:49.924331+00:00,ord_29k4kgfod,itm_dashinomoto,3,Dashinomoto (Bột cá cốt súp),Hộp
+77,2026-07-12T17:25:49.924331+00:00,ord_29k4kgfod,itm_edamame,2,Edamame,Thùng
+78,2026-07-12T17:25:49.924331+00:00,ord_29k4kgfod,itm_gaosushi,2,Gạo Sushi,Bao
+79,2026-07-12T17:25:49.924331+00:00,ord_29k4kgfod,itm_gomawakame,3,Goma Wakame (Rong biển trộn mè),Thùng
+80,2026-07-12T17:25:49.924331+00:00,ord_29k4kgfod,itm_gyozachicken,4,Gyoza Chicken,Thùng
+81,2026-07-12T17:25:49.924331+00:00,ord_29k4kgfod,itm_honteri,4,Honteri Mirin,Thùng
+82,2026-07-12T17:25:49.924331+00:00,ord_29k4kgfod,itm_katsuobushi,4,Katsuobushi (Cá bào Nhật Bản),Gói
+83,2026-07-12T17:25:49.924331+00:00,ord_29k4kgfod,itm_cx46fnxez,4,Konawasabi,Tông
+84,2026-07-12T17:25:49.924331+00:00,ord_29k4kgfod,itm_mayonnaisejp,4,Mayonnaise (Sốt Mayonnaise Nhật),Thùng
+85,2026-07-12T17:25:49.924331+00:00,ord_29k4kgfod,itm_miola,4,Miola,Lọ
+86,2026-07-12T17:25:49.924331+00:00,ord_29k4kgfod,itm_misoweiss,2,Miso Weiss (Tương miso trắng),Thùng
+87,2026-07-12T17:25:49.924331+00:00,ord_29k4kgfod,itm_tmzc3y6ef,4,Nấm hương,Kg
+88,2026-07-12T17:25:49.924331+00:00,ord_29k4kgfod,itm_sake,2,Rượu Sake Bán,Thùng
+89,2026-07-12T17:25:49.924331+00:00,ord_29k4kgfod,itm_sakechien,5,Rượu Sake Nấu,Thùng
+90,2026-07-12T17:25:49.924331+00:00,ord_29k4kgfod,itm_tijfm8qoe,2,Shirodashi,Chai
+91,2026-07-12T17:25:49.924331+00:00,ord_29k4kgfod,itm_xplae43rz,2,Shirodashi(nước nắm),Lọ
+92,2026-07-12T17:25:49.924331+00:00,ord_29k4kgfod,itm_suehiro,2,Suehiro,Thùng
+93,2026-07-12T17:25:49.924331+00:00,ord_29k4kgfod,itm_surimimaki,4,Surimi,Thùng
+94,2026-07-12T17:25:49.924331+00:00,ord_29k4kgfod,itm_npbjmcbbs,4,Sushi Gari (white),Thùng
+95,2026-07-12T17:25:49.924331+00:00,ord_29k4kgfod,itm_sushiyotakuan,3,Sushiyo Takuan (Củ cải vàng muối),Thùng
+96,2026-07-12T17:25:49.924331+00:00,ord_29k4kgfod,itm_ijejd8o9w,3,Sussi nori gold,Thùng
+97,2026-07-12T17:25:49.924331+00:00,ord_29k4kgfod,itm_bmke8p4iy,6,Sweet Potato Freis,Thùng
+98,2026-07-12T17:25:49.924331+00:00,ord_29k4kgfod,itm_tobikoorange,1,Tobiko,Thùng
+99,2026-07-12T17:25:49.924331+00:00,ord_29k4kgfod,itm_silkentofu,2,Tofu Firm,Thùng
+100,2026-07-12T17:25:49.924331+00:00,ord_29k4kgfod,itm_tom1315,3,Tôm 13/15,Thùng
+101,2026-07-12T17:25:49.924331+00:00,ord_29k4kgfod,itm_tom2125,2,Tôm 21/25,Thùng
+102,2026-07-12T17:25:49.924331+00:00,ord_29k4kgfod,itm_udon,3,Udon,Thùng
+103,2026-07-12T17:25:49.924331+00:00,ord_29k4kgfod,itm_unagikabayaki,2,Unagi Kabayaki,Thùng
+104,2026-07-12T17:25:49.924331+00:00,ord_29k4kgfod,itm_wakame,3,Wakame (Rong biển khô nấu súp),Gói
+105,2026-07-12T17:25:49.924331+00:00,ord_29k4kgfod,itm_yuzusaft,2,Yuzu Saft,Gói

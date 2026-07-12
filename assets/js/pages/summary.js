@@ -170,7 +170,17 @@ async function handleHistoryTableClick(event) {
         const { orders } = getData();
         const orderToReorder = orders.find(o => o.id === orderId);
         if (orderToReorder) {
-            sessionStorage.setItem(PENDING_ORDER_KEY, JSON.stringify(orderToReorder));
+            // Transform the order object to match the structure expected by order.js
+            const pendingOrderForReorder = {
+                ...orderToReorder,
+                items: orderToReorder.items.map(dbItem => ({
+                    itemId: dbItem.item_id, // Convert snake_case to camelCase
+                    quantity: dbItem.quantity,
+                    name: dbItem.name,
+                    unit: dbItem.unit
+                }))
+            };
+            sessionStorage.setItem(PENDING_ORDER_KEY, JSON.stringify(pendingOrderForReorder));
             window.location.href = './order.html';
         }
         return;
