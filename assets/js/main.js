@@ -5,24 +5,41 @@ const loadSharedComponents = async () => {
     const headerPlaceholder = document.getElementById('header-placeholder');
     const sidebarPlaceholder = document.getElementById('sidebar-placeholder');
 
-    // Dynamically determine the base path for shared components.
-    // This makes it work whether the page is at the root or in a subdirectory.
+    // --- Path Calculation ---
     const path = window.location.pathname;
     const isRoot = path.endsWith('/') || path.endsWith('/index.html');
-    const basePath = isRoot ? './pages' : '.';
+    const componentBasePath = isRoot ? './pages' : '.';
+
+    // Determine the root path for navigation links.
+    // On GitHub Pages, the path is /repo-name/, so we need to prepend this.
+    // On a custom domain or local server, the root is just "".
+    const getRootNavPath = () => {
+        const hostname = window.location.hostname;
+        if (hostname.includes('github.io')) {
+            // Pathname is /repo-name/ or /repo-name/pages/file.html
+            // The first segment is the repo name.
+            return `/${path.split('/')[1]}`;
+        }
+        return ''; // Root for local server or custom domain
+    };
+    const rootNavPath = getRootNavPath();
 
     try {
         const [headerRes, sidebarRes] = await Promise.all([
-            fetch(`${basePath}/shared-header.html`),
-            fetch(`${basePath}/shared-sidebar.html`)
+            fetch(`${componentBasePath}/shared-header.html`),
+            fetch(`${componentBasePath}/shared-sidebar.html`)
         ]);
 
         if (!headerRes.ok || !sidebarRes.ok) {
             throw new Error('Could not load shared components');
         }
 
-        const headerHTML = await headerRes.text();
-        const sidebarHTML = await sidebarRes.text();
+        let headerHTML = await headerRes.text();
+        let sidebarHTML = await sidebarRes.text();
+
+        // Replace placeholder with the correct root path
+        headerHTML = headerHTML.replace(/{{ROOT}}/g, rootNavPath);
+        sidebarHTML = sidebarHTML.replace(/{{ROOT}}/g, rootNavPath);
 
         if (headerPlaceholder) headerPlaceholder.innerHTML = headerHTML;
         if (sidebarPlaceholder) sidebarPlaceholder.innerHTML = sidebarHTML;
@@ -50,22 +67,6 @@ const initializeApp = async () => {
         console.log("Data in cache:", getData());
     } finally {
         hideLoader();
-    }
-
-    // --- Path Correction for Navigation ---
-    const isRootPage = window.location.pathname.endsWith('/') || window.location.pathname.endsWith('/index.html');
-    if (isRootPage) {
-        // If on the root page, adjust the relative paths from the loaded sidebar
-        document.querySelectorAll('.app-nav a, .header-title').forEach(link => {
-            const originalHref = link.getAttribute('href');
-            if (originalHref.startsWith('../')) {
-                // Change '../index.html' to './index.html'
-                link.setAttribute('href', originalHref.substring(3)); 
-            } else {
-                // Change 'order.html' to './pages/order.html'
-                link.setAttribute('href', `./pages/${originalHref}`);
-            }
-        });
     }
 
     // --- Navigation Logic ---
