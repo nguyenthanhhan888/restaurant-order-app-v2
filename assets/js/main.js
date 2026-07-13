@@ -5,15 +5,16 @@ const loadSharedComponents = async () => {
     const headerPlaceholder = document.getElementById('header-placeholder');
     const sidebarPlaceholder = document.getElementById('sidebar-placeholder');
 
-    // Use absolute paths from the server root.
-    // This works with local servers like VS Code's Live Server and GitHub Pages.
-    const headerPath = '/pages/_header.html';
-    const sidebarPath = '/pages/_sidebar.html';
+    // Dynamically determine the base path for shared components.
+    // This makes it work whether the page is at the root or in a subdirectory.
+    const path = window.location.pathname;
+    const isRoot = path.endsWith('/') || path.endsWith('/index.html');
+    const basePath = isRoot ? './pages' : '.';
 
     try {
         const [headerRes, sidebarRes] = await Promise.all([
-            fetch(headerPath),
-            fetch(sidebarPath)
+            fetch(`${basePath}/_header.html`),
+            fetch(`${basePath}/_sidebar.html`)
         ]);
 
         if (!headerRes.ok || !sidebarRes.ok) {
