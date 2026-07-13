@@ -13,8 +13,8 @@ const loadSharedComponents = async () => {
 
     try {
         const [headerRes, sidebarRes] = await Promise.all([
-            fetch(`${basePath}/_header.html`),
-            fetch(`${basePath}/_sidebar.html`)
+            fetch(`${basePath}/shared-header.html`),
+            fetch(`${basePath}/shared-sidebar.html`)
         ]);
 
         if (!headerRes.ok || !sidebarRes.ok) {
