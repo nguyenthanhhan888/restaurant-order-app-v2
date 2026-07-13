@@ -52,6 +52,22 @@ const initializeApp = async () => {
         hideLoader();
     }
 
+    // --- Path Correction for Navigation ---
+    const isRootPage = window.location.pathname.endsWith('/') || window.location.pathname.endsWith('/index.html');
+    if (isRootPage) {
+        // If on the root page, adjust the relative paths from the loaded sidebar
+        document.querySelectorAll('.app-nav a, .header-title').forEach(link => {
+            const originalHref = link.getAttribute('href');
+            if (originalHref.startsWith('../')) {
+                // Change '../index.html' to './index.html'
+                link.setAttribute('href', originalHref.substring(3)); 
+            } else {
+                // Change 'order.html' to './pages/order.html'
+                link.setAttribute('href', `./pages/${originalHref}`);
+            }
+        });
+    }
+
     // --- Navigation Logic ---
     const hamburgerMenu = document.getElementById('hamburger-menu');
     const sidebar = document.getElementById('sidebar');
