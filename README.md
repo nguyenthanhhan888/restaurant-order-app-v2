@@ -33,8 +33,8 @@ restaurant-order-app/
 │       ├── pages/            # Chứa các file JS cho từng trang
 │       └── services/         # Chứa các module dịch vụ (storage, loading...)
 ├── pages/
-│   ├── _header.html          # Template cho header
-│   ├── _sidebar.html         # Template cho sidebar
+│   ├── shared_header.html    # Template cho header
+│   ├── shared_sidebar.html   # Template cho sidebar
 │   ├── order.html
 │   ├── products.html
 │   ├── settings.html

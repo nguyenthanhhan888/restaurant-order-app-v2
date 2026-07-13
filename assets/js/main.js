@@ -1,14 +1,27 @@
 import { init as initStorage, getData } from './services/storage.js';
 import { initLoader, showLoader, hideLoader } from './services/loading.js';
 
+const getBasePath = () => {
+    const path = window.location.pathname;
+    // For GitHub Pages, path is /<repo-name>/...
+    if (window.location.hostname.includes('github.io')) {
+        const segments = path.split('/');
+        // Ensure there's a repo name and it's not an empty string
+        if (segments.length > 1 && segments[1] !== "") {
+            return `/${segments[1]}`;
+        }
+    }
+    // For local dev (like Live Server), base path is empty
+    return '';
+};
+
 const loadSharedComponents = async () => {
     const headerPlaceholder = document.getElementById('header-placeholder');
     const sidebarPlaceholder = document.getElementById('sidebar-placeholder');
 
-    // Use absolute paths from the server root.
-    // This works with local servers like VS Code's Live Server and GitHub Pages.
-    const headerPath = '/pages/_header.html';
-    const sidebarPath = '/pages/_sidebar.html';
+    const basePath = getBasePath();
+    const headerPath = `${basePath}/pages/shared_header.html`;
+    const sidebarPath = `${basePath}/pages/shared_sidebar.html`;
 
     try {
         const [headerRes, sidebarRes] = await Promise.all([
@@ -17,7 +30,7 @@ const loadSharedComponents = async () => {
         ]);
 
         if (!headerRes.ok || !sidebarRes.ok) {
-            throw new Error('Could not load shared components');
+            throw new Error(`Could not load shared components. Statuses: Header(${headerRes.status}), Sidebar(${sidebarRes.status})`);
         }
 
         const headerHTML = await headerRes.text();
@@ -25,6 +38,18 @@ const loadSharedComponents = async () => {
 
         if (headerPlaceholder) headerPlaceholder.innerHTML = headerHTML;
         if (sidebarPlaceholder) sidebarPlaceholder.innerHTML = sidebarHTML;
+
+        // After inserting HTML, fix the href attributes for GitHub Pages compatibility
+        if (basePath) {
+            const links = document.querySelectorAll('a[href^="/"]');
+            links.forEach(link => {
+                const originalHref = link.getAttribute('href');
+                // Prevent double-prepending if logic runs multiple times
+                if (!originalHref.startsWith(basePath)) {
+                    link.setAttribute('href', basePath + originalHref);
+                }
+            });
+        }
 
     } catch (error) {
         console.error("Error loading shared components:", error);
@@ -73,13 +98,16 @@ const initializeApp = async () => {
 
     const navLinks = document.querySelectorAll('.nav-link');
     navLinks.forEach(link => {
-        const linkPath = link.getAttribute('href').split('/').pop();
+        // Use getAttribute to get the raw href, which might now include the base path
+        const linkHref = link.getAttribute('href');
+        const linkPath = linkHref.split('/').pop();
 
         // Special handling for index.html as the dashboard
         const isDashboardLink = linkPath === 'index.html';
         const isCurrentPageDashboard = currentPath === '' || currentPath === 'index.html';
 
-        if (linkPath === currentPath || (isDashboardLink && isCurrentPageDashboard)) {
+        // Compare the end of the href with the current page's file name
+        if (linkHref.endsWith(currentPath) || (isDashboardLink && isCurrentPageDashboard)) {
             link.classList.add('active');
         }
     });
