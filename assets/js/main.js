@@ -117,4 +117,22 @@ const initializeApp = async () => {
     console.log("App initialized.");
 };
 
-document.addEventListener('DOMContentLoaded', initializeApp);
+const handleAccessControl = () => {
+    // Bạn có thể thay đổi mật khẩu ở đây
+    const CORRECT_PASSWORD = 'lequangdai888@'; 
+    const enteredPassword = prompt('Vui lòng nhập mật khẩu để truy cập:');
+
+    if (enteredPassword === CORRECT_PASSWORD) {
+        // Mật khẩu đúng, tiến hành khởi tạo ứng dụng
+        initializeApp();
+    } else if (enteredPassword !== null) { // Người dùng đã nhập sai, không phải bấm "Cancel"
+        alert('Mật khẩu không đúng!');
+        document.body.innerHTML = `<h1 style="text-align: center; margin-top: 50px; color: #c0392b;">Truy cập bị từ chối</h1>`;
+    } else {
+        // Người dùng đã bấm "Cancel" hoặc đóng hộp thoại
+        document.body.innerHTML = `<h1 style="text-align: center; margin-top: 50px;">Đã hủy truy cập</h1>`;
+    }
+};
+
+// Bắt đầu bằng việc kiểm tra mật khẩu thay vì khởi tạo trực tiếp
+document.addEventListener('DOMContentLoaded', handleAccessControl);
